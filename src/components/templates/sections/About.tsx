@@ -1,8 +1,9 @@
 import React from "react"
-import { SectionWrapper, SectionTitle, SectionContent } from "../styles"
+import { SectionWrapper, SectionTitle, SectionContent } from "./styles"
 import { H1, Tag } from "components/common/globals/typography"
 import { FlexAlign } from "components/common/globals/flex"
 import { List } from "components/common/list"
+import { TypeWriter } from "components/common/typewriter"
 
 const About = () => {
   const tagListItems = [

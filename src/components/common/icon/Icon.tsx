@@ -6,6 +6,11 @@ import {
   faItchIo,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons"
+import {
+  faUser,
+  faFileCode,
+  faFileLines,
+} from "@fortawesome/free-regular-svg-icons"
 import DevIcon from "devicon-react-svg"
 import { IconWrapper } from "./styles"
 
@@ -15,6 +20,12 @@ enum IconType {
   LinkedIn = "LinkedIn",
   ItchIo = "ItchIo",
 
+  User = "User",
+  UserGear = "UserGear",
+  FileCode = "FileCode",
+  FileLines = "FileLines",
+
+  //DEVICONS
   CPlusPlus = "CPlusPlus",
   CSharp = "CSharp",
   Unity = "Unity",
@@ -54,6 +65,14 @@ const Icon = ({ icon, size, color }: Props) => {
         return <FontAwesomeIcon icon={faLinkedin} className={cName} />
       case IconType.ItchIo:
         return <FontAwesomeIcon icon={faItchIo} className={cName} />
+      case IconType.User:
+        return <FontAwesomeIcon icon={faUser} className={cName} />
+      case IconType.UserGear:
+        return <FontAwesomeIcon icon={faUser} className={cName} />
+      case IconType.FileCode:
+        return <FontAwesomeIcon icon={faFileCode} className={cName} />
+      case IconType.FileLines:
+        return <FontAwesomeIcon icon={faFileLines} className={cName} />
 
       case IconType.React:
         return (

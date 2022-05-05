@@ -2,11 +2,17 @@ import styled, { css } from "styled-components"
 import { theme } from "utils/theme"
 
 interface Props {
+  flex: string
   animate?: boolean
 }
 const A = styled.a<Props>`
   color: inherit;
   cursor: pointer;
+
+  display: flex;
+  flex-direction: ${props => props.flex};
+  align-items: center;
+  justify-content: center;
 
   ${props => props.animate && borderAnim}
 `

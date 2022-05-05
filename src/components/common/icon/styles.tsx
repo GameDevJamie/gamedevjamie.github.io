@@ -5,7 +5,7 @@ interface StyleProps {
 }
 const IconWrapper = styled.span<StyleProps>`
   color: ${p => (p.color ? p.color : "inherit")};
-  transition: color 0.3s ease;
+  font-size: 2em;
 
   .fa-icon {
     color: ${p => (p.color ? p.color : "inherit")};

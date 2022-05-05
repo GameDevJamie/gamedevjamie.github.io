@@ -3,14 +3,19 @@ import { A } from "./styles"
 
 type Props = {
   href?: string
-  to?: string
   animate?: boolean
+  flex: string //Direction to flex stack elements inside the link (col or row)
 
   children: React.ReactNode
 }
-const Link = ({ href, animate, children }: Props) => {
+const Link = ({ href, animate, flex, children }: Props) => {
   return (
-    <A href={href && href} target="_blank" animate={animate}>
+    <A
+      href={href && href}
+      target="_blank"
+      animate={animate}
+      flex={flex == "col" ? "column" : flex}
+    >
       {children}
     </A>
   )
@@ -18,6 +23,7 @@ const Link = ({ href, animate, children }: Props) => {
 
 Link.defaultProps = {
   animate: true,
+  flex: "row",
 }
 
 export { Link }

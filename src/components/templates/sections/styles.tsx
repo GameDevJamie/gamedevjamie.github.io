@@ -3,6 +3,7 @@ import { H2 } from "components/common/globals/typography"
 
 const SectionWrapper = styled.section`
   height: 100vh;
+  padding-top: 50px;
   padding-left: 50px;
 
   display: flex;
