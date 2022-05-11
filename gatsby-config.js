@@ -4,7 +4,7 @@
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
 
-const path = require("path")
+const path = require("path");
 
 module.exports = {
   /* Your site config here */
@@ -32,11 +32,69 @@ module.exports = {
         href: "",
         icon: "LinkedIn",
       },
-      //{
-      //  name: "ItchIo",
-      //  href: "",
-      //  icon: "ItchIo",
-      //},
+      {
+        name: "ItchIo",
+        href: "",
+        icon: "ItchIo",
+      },
+    ],
+    skills: [
+      {
+        icon: "CPlusPlus",
+        title: "C++",
+      },
+      {
+        icon: "CSharp",
+        title: "C#",
+      },
+      {
+        icon: "Unity",
+        title: "Unity",
+      },
+      {
+        icon: "OpenGL",
+        title: "OpenGL",
+      },
+      {
+        icon: "HTML",
+        title: "HTML",
+      },
+      {
+        icon: "CSS",
+        title: "CSS",
+      },
+      {
+        icon: "JavaScript",
+        title: "JavaScript",
+      },
+      {
+        icon: "TypeScript",
+        title: "TypeScript",
+      },
+      {
+        icon: "React",
+        title: "React",
+      },
+      {
+        icon: "Git",
+        title: "Git",
+      },
+      {
+        icon: "WordPress",
+        title: "WordPress",
+      },
+      {
+        icon: "VisualStudio",
+        title: "Visual Studio",
+      },
+      {
+        icon: "VSCode",
+        title: "VS Code",
+      },
+      {
+        icon: "MSSQL",
+        title: "Microsoft SQL",
+      },
     ],
   },
-}
+};

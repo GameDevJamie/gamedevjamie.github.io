@@ -1,18 +1,14 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
-interface StyleProps {
-  color?: string
-}
-const IconWrapper = styled.span<StyleProps>`
-  color: ${p => (p.color ? p.color : "inherit")};
+const IconWrapper = styled.span`
   font-size: 2em;
 
-  .fa-icon {
-    color: ${p => (p.color ? p.color : "inherit")};
+  svg {
+    color: inherit;
 
     path {
-      color: ${p => (p.color ? p.color : "inherit")};
+      color: inherit;
     }
   }
-`
-export { IconWrapper }
+`;
+export { IconWrapper };

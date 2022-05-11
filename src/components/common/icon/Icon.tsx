@@ -1,18 +1,19 @@
-import React from "react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import React from "react";
+import { IconWrapper } from "./styles";
 import {
   faTwitter,
-  faGithub,
   faItchIo,
+  faGithub,
   faLinkedin,
-} from "@fortawesome/free-brands-svg-icons"
+} from "@fortawesome/free-brands-svg-icons";
+import { faLaptopCode } from "@fortawesome/free-solid-svg-icons";
 import {
   faUser,
-  faFileCode,
-  faFileLines,
-} from "@fortawesome/free-regular-svg-icons"
-import DevIcon from "devicon-react-svg"
-import { IconWrapper } from "./styles"
+  faFilePdf,
+  faHeart,
+} from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { theme } from "utils/theme";
 
 enum IconType {
   Twitter = "Twitter",
@@ -21,9 +22,9 @@ enum IconType {
   ItchIo = "ItchIo",
 
   User = "User",
-  UserGear = "UserGear",
-  FileCode = "FileCode",
-  FileLines = "FileLines",
+  Skills = "Skills",
+  Projects = "Projects",
+  File = "File",
 
   //DEVICONS
   CPlusPlus = "CPlusPlus",
@@ -43,49 +44,133 @@ enum IconType {
   VisualStudio = "VisualStudio",
   VSCode = "VSCode",
   Git = "Git",
-  SQL = "SQL",
+  MSSQL = "MSSQL",
 }
 
 type Props = {
-  icon: IconType
-  size: string
-  color?: string
-}
+  icon: IconType;
 
-const Icon = ({ icon, size, color }: Props) => {
-  function getIcon(icon: IconType) {
-    let cName = "fa-icon"
+  /*
+    default = Use default color for the icon
+    inherit = Use inherit color
+   */
+  color: string;
+};
 
-    switch (icon) {
-      case IconType.Twitter:
-        return <FontAwesomeIcon icon={faTwitter} className={cName} />
-      case IconType.Github:
-        return <FontAwesomeIcon icon={faGithub} className={cName} />
-      case IconType.LinkedIn:
-        return <FontAwesomeIcon icon={faLinkedin} className={cName} />
-      case IconType.ItchIo:
-        return <FontAwesomeIcon icon={faItchIo} className={cName} />
-      case IconType.User:
-        return <FontAwesomeIcon icon={faUser} className={cName} />
-      case IconType.UserGear:
-        return <FontAwesomeIcon icon={faUser} className={cName} />
-      case IconType.FileCode:
-        return <FontAwesomeIcon icon={faFileCode} className={cName} />
-      case IconType.FileLines:
-        return <FontAwesomeIcon icon={faFileLines} className={cName} />
+function getIcon(icon: IconType, defaultColor: boolean) {
+  //Devicon Icon
+  let deviconClassName: string = getDeviconClass(icon);
+  let isDevicon: boolean = deviconClassName != "";
 
-      case IconType.React:
-        return (
-          <DevIcon icon="html5" style={{ fill: "#E44D26", height: size }} />
-        )
-    }
+  if (isDevicon) {
+    let colored: string = defaultColor ? " colored" : "";
+    return <i className={deviconClassName + colored}></i>;
   }
 
-  return <IconWrapper color={color}>{getIcon(icon)}</IconWrapper>
+  switch (icon) {
+    case IconType.Twitter:
+      return <FontAwesomeIcon icon={faTwitter} />;
+    case IconType.Github:
+      return <FontAwesomeIcon icon={faGithub} />;
+    case IconType.LinkedIn:
+      return <FontAwesomeIcon icon={faLinkedin} />;
+    case IconType.ItchIo:
+      return <FontAwesomeIcon icon={faItchIo} />;
+
+    case IconType.User:
+      return <FontAwesomeIcon icon={faUser} />;
+    case IconType.Skills:
+      return <FontAwesomeIcon icon={faLaptopCode} />;
+    case IconType.Projects:
+      return <FontAwesomeIcon icon={faHeart} />;
+    case IconType.File:
+      return <FontAwesomeIcon icon={faFilePdf} />;
+
+    default:
+      return <i></i>;
+  }
 }
+
+function getDeviconClass(icon: IconType): string {
+  switch (icon) {
+    case IconType.CPlusPlus:
+      return "devicon-cplusplus-plain";
+    case IconType.CSharp:
+      return "devicon-csharp-plain";
+    case IconType.Unity:
+      return "devicon-unity-original";
+    case IconType.DirectX:
+      return "";
+    case IconType.OpenGL:
+      return "devicon-opengl-plain";
+
+    case IconType.React:
+      return "devicon-react-original";
+    case IconType.Gatsby:
+      return "devicon-gatsby-plain";
+    case IconType.HTML:
+      return "devicon-html5-plain";
+    case IconType.CSS:
+      return "devicon-css3-plain";
+    case IconType.JavaScript:
+      return "devicon-javascript-plain";
+    case IconType.TypeScript:
+      return "devicon-typescript-plain";
+    case IconType.WordPress:
+      return "devicon-wordpress-plain";
+    case IconType.VisualStudio:
+      return "devicon-visualstudio-plain";
+    case IconType.VSCode:
+      return "devicon-vscode-plain";
+    case IconType.Git:
+      return "devicon-git-plain";
+    case IconType.MSSQL:
+      return "devicon-microsoftsqlserver-plain";
+
+    default:
+      return "";
+  }
+}
+function getFontAwesomeHexColor(icon: IconType): string {
+  switch (icon) {
+    case IconType.Twitter:
+      return theme.colors.social.twitter;
+    case IconType.Github:
+      return theme.colors.social.github;
+    case IconType.LinkedIn:
+      return theme.colors.social.linkedin;
+    case IconType.ItchIo:
+      return theme.colors.social.itchio;
+
+    case IconType.User:
+      return "#000";
+    case IconType.Skills:
+      return "#000";
+    case IconType.Projects:
+      return "#000";
+    case IconType.File:
+      return "#c92e40";
+
+    default:
+      return "";
+  }
+}
+
+const Icon = ({ icon, color }: Props) => {
+  let defaultColor: boolean = color == "default";
+
+  return (
+    <IconWrapper
+      className="icon"
+      style={{ color: defaultColor ? getFontAwesomeHexColor(icon) : color }}
+    >
+      {getIcon(icon, defaultColor)}
+    </IconWrapper>
+  );
+};
 
 Icon.defaultProps = {
-  size: "35px",
-}
+  color: "default",
+};
 
-export { Icon, IconType }
+export { Icon, IconType };

@@ -1,10 +1,10 @@
-import React, { useState } from "react"
-import { Nav, Wrapper, NavList, NavLink } from "./styles"
-import { Icon, IconType } from "components/common/icon"
+import React, { useState } from "react";
+import { Nav, Wrapper, NavList, NavLink } from "./styles";
+import { Icon, IconType } from "components/common/icon";
 
 type Props = {
-  onChange: (id: string) => void
-}
+  onChange: (id: string) => void;
+};
 
 const Navbar = ({ onChange }: Props) => {
   const navLinkArray = [
@@ -17,27 +17,27 @@ const Navbar = ({ onChange }: Props) => {
     {
       id: "skills",
       name: "SKILLS",
-      icon: IconType.User,
+      icon: IconType.Skills,
       active: false,
     },
     {
       id: "projects",
       name: "PROJECTS",
-      icon: IconType.FileCode,
+      icon: IconType.Projects,
       active: false,
     },
-  ]
+  ];
 
-  const [navLinks, setNavLinks] = useState(navLinkArray)
+  const [navLinks, setNavLinks] = useState(navLinkArray);
 
   const handleActiveNavLink = (id: string) => {
-    console.log(id)
+    console.log(id);
     setNavLinks(
       navLinks.map(link =>
         link.id === id ? { ...link, active: true } : { ...link, active: false }
       )
-    )
-  }
+    );
+  };
 
   return (
     <Nav>
@@ -47,24 +47,24 @@ const Navbar = ({ onChange }: Props) => {
             <NavLink
               active={l.active}
               onClick={() => {
-                onChange(l.id)
-                handleActiveNavLink(l.id)
+                onChange(l.id);
+                handleActiveNavLink(l.id);
               }}
             >
-              <Icon icon={l.icon} />
+              <Icon icon={l.icon} color="inherit" />
               {l.name}
             </NavLink>
           ))}
 
           {/*CV Link seperate as will just open pdf tab*/}
           <NavLink active={false}>
-            <Icon icon={IconType.FileLines} />
+            <Icon icon={IconType.File} color="inherit" />
             CV
           </NavLink>
         </NavList>
       </Wrapper>
     </Nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

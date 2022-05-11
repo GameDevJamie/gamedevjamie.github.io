@@ -2,15 +2,13 @@ import styled from "styled-components"
 import { theme } from "utils/theme"
 
 const Nav = styled.nav`
-  position: fixed;
-  right: 0;
   max-width: 100%;
   width: 100%;
   box-shadow: 0px 4px 10px 0px ${theme.colors.primary};
 `
 
 const Wrapper = styled.div`
-  min-height: 100px;
+  min-height: 80px;
   width: 95%;
   display: flex;
   justify-content: right;
