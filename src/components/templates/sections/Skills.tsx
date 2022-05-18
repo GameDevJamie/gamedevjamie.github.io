@@ -34,8 +34,6 @@ const Skills = () => {
     config: config.gentle,
   });
 
-  //Trial.map(index => {<a.div>{skills[index]}</a.div>})
-
   return (
     <SectionWrapper>
       <SectionTitle>SKILLS</SectionTitle>
@@ -49,23 +47,6 @@ const Skills = () => {
               />
             </animated.div>
           ))}
-
-          {/*<SkillBox icon={IconType.CPlusPlus} title="C++" />
-          <SkillBox icon={IconType.CSharp} title="C#" />
-          <SkillBox icon={IconType.Unity} title="Unity" />
-          <SkillBox icon={IconType.OpenGL} title="OpenGL" />
-
-          <SkillBox icon={IconType.HTML} title="HTML" />
-          <SkillBox icon={IconType.CSS} title="CSS" />
-          <SkillBox icon={IconType.JavaScript} title="JavaScript" />
-          <SkillBox icon={IconType.TypeScript} title="TypeScript" />
-          <SkillBox icon={IconType.React} title="React" />
-          <SkillBox icon={IconType.Git} title="Git" />
-
-          <SkillBox icon={IconType.WordPress} title="WordPress" />
-          <SkillBox icon={IconType.VisualStudio} title="Visual Studio" />
-          <SkillBox icon={IconType.VSCode} title="VS Code" />
-          <SkillBox icon={IconType.MSSQL} title="Microsoft SQL" />*/}
         </SkillsWrapper>
       </SectionContent>
     </SectionWrapper>

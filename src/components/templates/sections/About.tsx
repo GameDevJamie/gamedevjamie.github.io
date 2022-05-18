@@ -1,9 +1,20 @@
-import React from "react"
-import { SectionWrapper, SectionTitle, SectionContent } from "./styles"
-import { H1, Tag } from "components/common/globals/typography"
-import { FlexAlign } from "components/common/globals/flex"
-import { List } from "components/common/list"
-import { TypeWriter } from "components/common/typewriter"
+import React from "react";
+import styled from "styled-components";
+import { SectionWrapper, SectionContent } from "./styles";
+import { H1, Tag } from "components/common/globals/typography";
+import { FlexAlign } from "components/common/globals/flex";
+import { List } from "components/common/list";
+import { TypeWriter } from "components/common/typewriter";
+import { mediaMax } from "utils/functions";
+import { theme } from "utils/theme";
+
+const Title = styled(H1)`
+  font-size: 3em;
+
+  ${mediaMax(theme.device.breakPoints.mobileL)} {
+    font-size: 2.25em;
+  }
+`;
 
 const About = () => {
   const tagListItems = [
@@ -11,14 +22,19 @@ const About = () => {
     <Tag>Unity</Tag>,
     <Tag>Gameplay</Tag>,
     <Tag>AI</Tag>,
-  ]
+  ];
 
   return (
     <SectionWrapper>
       {/*<SectionTitle>ABOUT</SectionTitle>*/}
       <SectionContent>
-        <H1>Hi, I'm Jamie</H1>
-        <H1>A Software Developer</H1>
+        <Title>
+          <TypeWriter content="Hi, I'm Jamie" speed={75} delay={0} />
+        </Title>
+        <Title>
+          <TypeWriter content="A Software Developer" speed={75} delay={1300} />
+        </Title>
+
         <List items={tagListItems} align={FlexAlign.Left} />
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae
@@ -35,7 +51,7 @@ const About = () => {
         </p>
       </SectionContent>
     </SectionWrapper>
-  )
-}
+  );
+};
 
-export default About
+export default About;
