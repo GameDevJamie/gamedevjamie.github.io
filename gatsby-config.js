@@ -84,6 +84,10 @@ module.exports = {
         title: "WordPress",
       },
       {
+        icon: "Python",
+        title: "Python",
+      },
+      {
         icon: "VisualStudio",
         title: "Visual Studio",
       },

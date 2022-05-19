@@ -18,7 +18,11 @@ const SkillsWrapper = styled.div`
   }
 `;
 
-const Skills = () => {
+type Props = {
+  show: boolean; //True = Start animation to show skills.
+};
+
+const Skills = ({ show }: Props) => {
   //Fetch Skills
   const skillsData = useSiteMetadata().skills;
 
@@ -30,7 +34,7 @@ const Skills = () => {
       alignItems: "center",
       justifyContent: "center",
     },
-    to: { opacity: 1 },
+    to: { opacity: show ? 1 : 0 },
     config: config.gentle,
   });
 

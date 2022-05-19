@@ -40,6 +40,7 @@ enum IconType {
   JavaScript = "JavaScript",
   TypeScript = "TypeScript",
   WordPress = "WordPress",
+  Python = "Python",
 
   VisualStudio = "VisualStudio",
   VSCode = "VSCode",
@@ -118,6 +119,8 @@ function getDeviconClass(icon: IconType): string {
       return "devicon-typescript-plain";
     case IconType.WordPress:
       return "devicon-wordpress-plain";
+    case IconType.Python:
+      return "devicon-python-plain";
     case IconType.VisualStudio:
       return "devicon-visualstudio-plain";
     case IconType.VSCode:

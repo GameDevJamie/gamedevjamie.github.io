@@ -1,12 +1,12 @@
-const size = {
+/*const size = {
   mobileS: "320px",
   mobileM: "375px",
   mobileL: "425px",
   tablet: "728px",
-  laptop: "1024px",
+  laptop: "950px",
   laptopL: "1440px",
   desktop: "2560px",
-}
+};
 
 export const device = {
   mobileS: `(min-width: ${size.mobileS})`,
@@ -17,12 +17,12 @@ export const device = {
   laptopL: `(min-width: ${size.laptopL})`,
   desktop: `(min-width: ${size.desktop})`,
   desktopL: `(min-width: ${size.desktop})`,
+};*/
+
+export function mediaMin(breakPoint: number) {
+  return `@media (min-width: ${breakPoint})`;
 }
 
-function mediaMin(breakPoint: number) {
-  return `@media (min-width: ${breakPoint})`
-}
-
-function mediaMax(breakPoint: number) {
-  return `@media (max-width: ${breakPoint})`
+export function mediaMax(breakPoint: number) {
+  return `@media (max-width: ${breakPoint})`;
 }

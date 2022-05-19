@@ -1,6 +1,6 @@
 //import { device } from "./device"
-import styled_theme from "styled-theming"
-import { css } from "styled-components"
+import styled_theme from "styled-theming";
+import { css } from "styled-components";
 
 /*
   theme
@@ -42,15 +42,15 @@ const theme = {
       getColor(type: string) {
         switch (type.toUpperCase()) {
           case "TWITTER":
-            return theme.colors.social.twitter
+            return theme.colors.social.twitter;
           case "GITHUB":
-            return theme.colors.social.github
+            return theme.colors.social.github;
           case "ITCHIO":
-            return theme.colors.social.itchio
+            return theme.colors.social.itchio;
           case "LINKEDIN":
-            return theme.colors.social.linkedin
+            return theme.colors.social.linkedin;
           default:
-            return "#000"
+            return "#000";
         }
       },
     },
@@ -73,12 +73,12 @@ const theme = {
       mobileM: "375px",
       mobileL: "425px",
       tablet: "728px",
-      laptop: "1024px",
+      laptop: "950px",
       laptopL: "1440px",
       desktop: "2560px",
     },
   },
-}
+};
 
 /*
 const main = {
@@ -268,4 +268,4 @@ const oldtheme = {
   device: device,
 }
 */
-export { theme }
+export { theme };

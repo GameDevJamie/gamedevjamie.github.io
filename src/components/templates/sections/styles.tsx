@@ -4,7 +4,7 @@ import { mediaMax } from "utils/functions";
 import { theme } from "utils/theme";
 
 const SectionWrapper = styled.section`
-  height: calc(100vh - 80px);
+  height: calc(100vh - 90px);
   padding-left: 50px;
 
   ${mediaMax(theme.device.breakPoints.tablet)} {
@@ -22,7 +22,7 @@ const SectionContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100%;
+  height: 80vh;
 `;
 
 export { SectionWrapper, SectionTitle, SectionContent };

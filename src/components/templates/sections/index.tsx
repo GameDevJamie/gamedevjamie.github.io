@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import About from "./About";
 import Skills from "./Skills";
-import { animated, useSpring, config } from "react-spring";
+import { animated, useSpring } from "react-spring";
 
 const Main = styled(animated.div)`
   position: relative;
@@ -18,16 +18,23 @@ type Props = {
 
 const SectionHandler = ({ section }: Props) => {
   const [parentLeft, setLeft] = useState(0);
+  const [showSkills, setShowSkills] = useState(false);
   const [styles, api] = useSpring(() => ({ left: "0%" }));
 
   useEffect(() => {
     if (section == "about") setLeft(0);
-    else if (section == "skills") setLeft(-100);
-    else if (section == "projects") setLeft(-200);
-    else setLeft(0);
+    else if (section == "skills") {
+      setLeft(-100);
+
+      //Tell Skills section to start animation. Only perform once
+      setShowSkills(true);
+    } else if (section == "projects") setLeft(-200);
+
+    //Section not found, do nothing
   }, [section]);
 
   useEffect(() => {
+    //Start animation
     api.start({ left: parentLeft.toString() + "%" });
   }, [parentLeft]);
 
@@ -37,7 +44,7 @@ const SectionHandler = ({ section }: Props) => {
         <About />
       </Section>
       <Section style={{ left: "100%" }}>
-        <Skills />
+        <Skills show={showSkills} />
       </Section>
       <Section style={{ left: "200%" }}>
         <About />

@@ -16,8 +16,9 @@ const MainWrapper = styled.div`
   height: 100vh;
   overflow: hidden;
 
-  ${mediaMax(theme.device.breakPoints.tablet)} {
+  ${mediaMax(theme.device.breakPoints.laptop)} {
     flex-direction: column;
+    overflow-y: auto;
   }
 `;
 
@@ -29,11 +30,12 @@ const VideoWrapper = styled.div`
 
 const ContentWrapper = styled.div`
   width: 100%;
+  height: 100%;
 `;
 
 const Video = styled.video`
   width: 100%;
-  height: 100%;
+  height: 100vh;
   object-fit: fill;
 `;
 
