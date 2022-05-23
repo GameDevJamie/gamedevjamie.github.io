@@ -5,6 +5,7 @@ import GlobalStyles from "GlobalStyles";
 import Head from "components/common/head";
 import Navbar from "components/templates/navbar";
 import SectionHandler from "components/templates/sections";
+import About from "components/templates/about";
 import { theme } from "utils/theme";
 import { mediaMax } from "utils/functions";
 
@@ -24,7 +25,7 @@ const MainWrapper = styled.div`
 
 const VideoWrapper = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 100%;
   z-index: 9999;
 `;
 
@@ -59,8 +60,9 @@ export default function Home() {
         </VideoWrapper>
 
         <ContentWrapper>
-          <Navbar onChange={sectionChange} />
-          <SectionHandler section={section} />
+          {/*<Navbar onChange={sectionChange} />
+          /*<SectionHandler section={section} />*/}
+          <About />
         </ContentWrapper>
       </MainWrapper>
     </ThemeProvider>

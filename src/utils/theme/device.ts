@@ -19,10 +19,12 @@ export const device = {
   desktopL: `(min-width: ${size.desktop})`,
 };*/
 
-export function mediaMin(breakPoint: number) {
+/*export function mediaMin(breakPoint: number) {
   return `@media (min-width: ${breakPoint})`;
 }
 
 export function mediaMax(breakPoint: number) {
   return `@media (max-width: ${breakPoint})`;
-}
+}*/
+
+export function test() {}
