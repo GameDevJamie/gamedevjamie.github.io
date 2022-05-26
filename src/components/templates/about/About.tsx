@@ -5,6 +5,41 @@ import { FlexAlign } from "components/common/globals/flex";
 import { List } from "components/common/list";
 import { TypeWriter } from "components/common/typewriter";
 import { ModalBox } from "components/common/modalBox";
+import { Button } from "components/common/button";
+import Slideshow from "components/common/slideshow";
+
+const slideshowItems = [
+  <div
+    style={{
+      height: "100%",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    }}
+  >
+    Skills
+  </div>,
+  <div
+    style={{
+      height: "100%",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    }}
+  >
+    Projects
+  </div>,
+  <div
+    style={{
+      height: "100%",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    }}
+  >
+    CV
+  </div>,
+];
 
 const About = () => {
   const tagListItems = [
@@ -46,6 +81,14 @@ const About = () => {
         libero veniam!
       </p>
       <List items={placeholderItems} align={FlexAlign.Center} />
+      <Button>
+        <Slideshow
+          items={slideshowItems}
+          loop={true}
+          autoplay={true}
+          delay={1500}
+        />
+      </Button>
       <div
         style={{
           display: "flex",

@@ -1,16 +1,18 @@
-import React from "react"
-import { FlexAlign } from "../globals/flex"
-import { ListWrapper, ListItem } from "./styles"
+import React from "react";
+import { FlexAlign } from "../globals/flex";
+import { ListWrapper, ListItem } from "./styles";
 
 type Props = {
-  items: Array<React.ReactNode>
-  align: FlexAlign
-  direction: string
-  mobileDirection?: string
-}
+  items: Array<React.ReactNode>;
+  align: FlexAlign;
+  direction: string;
+  mobileDirection?: string;
+};
 
 const List = ({ items, align, direction, mobileDirection }: Props) => {
-  const listItems = items.map(item => <ListItem>{item}</ListItem>)
+  const listItems = items.map((item, i) => (
+    <ListItem key={"listItem-" + i}>{item}</ListItem>
+  ));
 
   return (
     <ListWrapper
@@ -20,12 +22,12 @@ const List = ({ items, align, direction, mobileDirection }: Props) => {
     >
       {listItems}
     </ListWrapper>
-  )
-}
+  );
+};
 
 List.defaultProps = {
   align: FlexAlign.Center,
   direction: "row",
-}
+};
 
-export { List }
+export { List };
