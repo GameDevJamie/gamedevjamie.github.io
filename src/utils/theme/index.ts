@@ -29,7 +29,7 @@ import { css } from "styled-components";
 
 const theme = {
   colors: {
-    background: "#f7f7f7",
+    background: "#eeeeee",
     primary: "#C52AF5",
     text: "#232320",
 
@@ -65,6 +65,10 @@ const theme = {
 
   spacing: {
     sectionPadding: "20px",
+  },
+
+  transition: {
+    color: 0.25,
   },
 
   device: {

@@ -20,8 +20,8 @@ const Wrapper = styled.div`
   white-space: nowrap;
 
   &:hover {
-    width: 100px;
-    height: 100px;
+    width: 95px;
+    height: 95px;
     box-shadow: 1px 1px 10px 0px #585858;
   }
 
@@ -29,8 +29,8 @@ const Wrapper = styled.div`
     width: 75px;
     height: 75px;
     &:hover {
-      width: 80px;
-      height: 80px;
+      width: 75px;
+      height: 75px;
     }
   }
 `;

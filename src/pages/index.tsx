@@ -7,36 +7,37 @@ import Navbar from "components/templates/navbar";
 import SectionHandler from "components/templates/sections";
 import About from "components/templates/about";
 import { theme } from "utils/theme";
-import { mediaMax } from "utils/functions";
+import { mediaMax, mediaMin } from "utils/functions";
 
 const MainWrapper = styled.div`
   display: flex;
-  flex-direction: row;
-
+  flex-direction: column;
+  overflow-y: auto;
   width: 100%;
-  height: 100vh;
-  overflow: hidden;
 
-  ${mediaMax(theme.device.breakPoints.laptop)} {
-    flex-direction: column;
-    overflow-y: auto;
+  ${mediaMin(theme.device.breakPoints.tablet)} {
+    flex-direction: row;
+    height: 100vh;
+    overflow: hidden;
   }
-`;
-
-const VideoWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  z-index: 9999;
 `;
 
 const ContentWrapper = styled.div`
   width: 100%;
   height: 100%;
+
+  ${mediaMin(theme.device.breakPoints.tablet)} {
+    width: 50%;
+  }
+`;
+
+const VideoWrapper = styled(ContentWrapper)`
+  z-index: 9999;
 `;
 
 const Video = styled.video`
   width: 100%;
-  height: 100vh;
+  height: 100%;
   object-fit: fill;
 `;
 

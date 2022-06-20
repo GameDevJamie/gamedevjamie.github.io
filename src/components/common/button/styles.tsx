@@ -7,7 +7,7 @@ const BasicButton = styled.button`
   height: 50px;
   border-radius: 10px;
   background: white;
-  color: white;
+  color: black;
 `;
 
 export { BasicButton };
