@@ -6,6 +6,7 @@ import { mediaMin } from "utils/functions";
 const Container = styled(animated.div)`
   border-radius: 10px;
   background: white;
+  overflow: hidden;
 `;
 
 const Wrapper = styled.div`
@@ -28,4 +29,8 @@ const Wrapper = styled.div`
   }
 `;
 
-export { Container, Wrapper };
+const Content = styled(animated.div)`
+  opacity: 0;
+`;
+
+export { Container, Wrapper, Content };

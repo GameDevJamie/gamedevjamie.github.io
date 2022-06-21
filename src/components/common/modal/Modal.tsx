@@ -1,7 +1,13 @@
 import React from "react";
-import { useTransition, config } from "react-spring";
-import Overlay from "components/common/overlay";
-import { Wrapper, Container } from "./styles";
+import {
+  useSpring,
+  useTransition,
+  useChain,
+  useSpringRef,
+  config,
+} from "react-spring";
+import { AnimatedOverlay } from "../globals/common";
+import { Wrapper, Container, Content } from "./styles";
 
 type Props = {
   children: React.ReactNode;
@@ -9,28 +15,51 @@ type Props = {
   closeModal: () => void; //Call function when close button or overlay is clicked
 };
 
-//TODO: UseChain for chaining appearance of modal and displaying content
-//      UseSpring instead for the modal animation
-//      UseTransition for the content
-
 const Modal = ({ children, open, closeModal }: Props) => {
+  const modalApi = useSpringRef();
+  const overlayApi = useSpringRef();
+  const contentApi = useSpringRef();
+
+  //Modal
   const transition = useTransition(open, {
+    ref: modalApi,
     config: config.default,
     from: { width: "0%", height: "0%" },
     enter: { width: "100%", height: "100%" },
     leave: { width: "0%", height: "0%" },
   });
 
+  //Overlay
+  const overlayStyles = useSpring({
+    ref: overlayApi,
+    to: { opacity: open ? 0.5 : 0 },
+  });
+
+  const contentStyles = useSpring({
+    ref: contentApi,
+    to: { opacity: open ? 1 : 0 },
+  });
+  useChain(
+    open
+      ? [modalApi, overlayApi, contentApi]
+      : [contentApi, overlayApi, modalApi],
+    open ? [0, 0, 0.5] : [0, 0.5, 0.5]
+  );
+
   return (
     <>
-      <Overlay active={open} onClick={closeModal} />
-
       {transition(
         (style, item) =>
           item && (
-            <Wrapper>
-              <Container style={style}>{children}</Container>
-            </Wrapper>
+            <>
+              <AnimatedOverlay style={overlayStyles} onClick={closeModal} />
+
+              <Wrapper>
+                <Container style={style}>
+                  <Content style={contentStyles}>{children}</Content>
+                </Container>
+              </Wrapper>
+            </>
           )
       )}
     </>

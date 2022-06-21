@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { useTransition, animated, config } from "react-spring";
+import { useTransition, SpringRef, animated } from "react-spring";
+import { Lookup } from "@react-spring/types";
 
 const Wrapper = styled(animated.div)`
   height: 100%;
@@ -8,18 +9,20 @@ const Wrapper = styled(animated.div)`
   position: fixed;
   top: 0;
   left: 0;
-  opacity: 0;
+  opacity: 0.5;
   background: black;
   z-index: 10000;
 `;
 
 type Props = {
   active: boolean;
+  ref?: SpringRef<Lookup<any>>;
   onClick?: () => void;
 };
 
-const Overlay = ({ active, onClick }: Props) => {
+const Overlay = ({ active, onClick, ref }: Props) => {
   const transition = useTransition(active, {
+    ref: ref,
     from: { opacity: 0 },
     enter: { opacity: 0.5 },
     leave: { opacity: 0 },
