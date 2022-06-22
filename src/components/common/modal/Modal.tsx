@@ -24,9 +24,9 @@ const Modal = ({ children, open, closeModal }: Props) => {
   const transition = useTransition(open, {
     ref: modalApi,
     config: config.default,
-    from: { width: "0%", height: "0%" },
-    enter: { width: "100%", height: "100%" },
-    leave: { width: "0%", height: "0%" },
+    from: { width: "0%" },
+    enter: { width: "100%" },
+    leave: { width: "0%" },
   });
 
   //Overlay

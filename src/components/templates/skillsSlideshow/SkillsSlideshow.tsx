@@ -1,9 +1,23 @@
 import React, { useState } from "react";
-import { Icon, IconType } from "components/common/icon";
+import styled from "styled-components";
+import { IconType } from "components/common/icon";
 import Carousel from "components/common/carousel";
 import SkillBox from "../skillBox";
 import { useSiteMetadata } from "utils/graphql/queries/getSiteMetaData";
 import Modal from "components/common/modal/Modal";
+import { theme } from "utils/theme";
+import { mediaMax } from "utils/functions";
+
+const SkillsWrapper = styled.div`
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-row-gap: 30px;
+  grid-column-gap: 30px;
+
+  ${mediaMax(theme.device.breakPoints.tablet)} {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+`;
 
 const SkillsSlideshow = () => {
   const [open, setOpen] = useState(false);
@@ -20,12 +34,12 @@ const SkillsSlideshow = () => {
   ));
 
   return (
-    //<Slideshow items={skillsArr} loop={true} autoplay={true} delay={1500} />
     <>
       <Carousel
         items={skillsArr}
         loop={true}
         autoplay={true}
+        delay={2000}
         itemsPerSlide={4}
         title="Skills"
         onClick={() => {
@@ -38,8 +52,7 @@ const SkillsSlideshow = () => {
           setOpen(false);
         }}
       >
-        <div>Test 1</div>
-        <div> Test 2</div>
+        <SkillsWrapper>{skillsArr}</SkillsWrapper>
       </Modal>
     </>
   );

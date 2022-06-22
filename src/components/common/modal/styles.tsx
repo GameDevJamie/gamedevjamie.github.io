@@ -7,6 +7,8 @@ const Container = styled(animated.div)`
   border-radius: 10px;
   background: white;
   overflow: hidden;
+  height: auto;
+  max-height: 90%;
 `;
 
 const Wrapper = styled.div`
@@ -31,6 +33,7 @@ const Wrapper = styled.div`
 
 const Content = styled(animated.div)`
   opacity: 0;
+  padding: 20px;
 `;
 
 export { Container, Wrapper, Content };

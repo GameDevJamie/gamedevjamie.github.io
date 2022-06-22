@@ -8,6 +8,7 @@ type Props = {
   itemsPerSlide: number;
   loop: boolean;
   autoplay: boolean;
+  delay: number;
 
   title: string;
   onClick: () => void;
@@ -18,38 +19,33 @@ const Carousel = ({
   itemsPerSlide,
   loop,
   autoplay,
+  delay,
   title,
   onClick,
 }: Props) => {
-  const { carouselFragment, slideToNextItem } = getSpringCarousel(
-    items,
-    itemsPerSlide,
-    loop
-  );
+  const { carouselFragment, slideToNextItem, useListenToCustomEvent } =
+    getSpringCarousel(items, itemsPerSlide, loop);
 
-  /*useEffect(() => {
-    console.log("effect call");
-
-    const timer = setInterval(() => {
-      console.log("timer call");
-      slideToPrevItem();
-    }, 1500);
-    return () => {
-      clearInterval(timer);
-    };
-    /*
+  useEffect(() => {
     if (autoplay) {
       const timer = setTimeout(() => {
-        //slideToPrevItem();
-        console.log("timer call");
-      }, 1500);
+        slideToNextItem();
+      }, delay);
       return () => {
-        window.clearTimeout(timer);
-        console.log("timer clear");
+        clearTimeout(timer);
       };
     }
-    // You MUST add the slide methods to the dependency list useEffect!
-  }, []);*/
+  }, []);
+
+  useListenToCustomEvent(event => {
+    //Triggered when the slide animation is completed
+    if (event.eventName === "onSlideChange" && autoplay) {
+      //Start timer to trigger next slide
+      const timer = setTimeout(() => {
+        slideToNextItem();
+      }, delay);
+    }
+  });
 
   return (
     <div style={{ marginTop: "30px" }}>
@@ -86,5 +82,10 @@ function getSpringCarousel(
         })),
       });
 }
+
+Carousel.defaultProps = {
+  autoplay: false,
+  delay: 1000,
+};
 
 export default Carousel;
