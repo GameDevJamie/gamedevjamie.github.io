@@ -1,18 +1,9 @@
 import styled from "styled-components";
-import { animated } from "react-spring";
 import { theme } from "utils/theme";
 import { mediaMin } from "utils/functions";
 
-const Container = styled(animated.div)`
-  border-radius: 10px;
-  background: white;
-  overflow: hidden;
-  height: auto;
-  max-height: 90%;
-`;
-
-const Wrapper = styled.div`
-  width: 98%;
+const Modal = styled.div`
+  width: auto;
   height: 98%;
 
   position: fixed;
@@ -26,14 +17,26 @@ const Wrapper = styled.div`
   align-items: center;
 
   ${mediaMin(theme.device.breakPoints.tablet)} {
-    width: 50%;
     height: 90%;
   }
 `;
 
-const Content = styled(animated.div)`
-  opacity: 0;
+const ModalBody = styled.div`
+  border-radius: 10px;
+  background: white;
+  overflow: hidden;
+  height: auto;
+  max-height: 90%;
+`;
+
+const ModalHeader = styled.div`
+  border-bottom: 1px solid black;
+`;
+
+const ModalFooter = styled.div``;
+
+const ModalContent = styled.div`
   padding: 20px;
 `;
 
-export { Container, Wrapper, Content };
+export { Modal, ModalBody, ModalHeader, ModalContent, ModalFooter };

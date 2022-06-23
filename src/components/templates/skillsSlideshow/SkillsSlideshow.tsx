@@ -4,9 +4,9 @@ import { IconType } from "components/common/icon";
 import Carousel from "components/common/carousel";
 import SkillBox from "../skillBox";
 import { useSiteMetadata } from "utils/graphql/queries/getSiteMetaData";
-import Modal from "components/common/modal/Modal";
 import { theme } from "utils/theme";
 import { mediaMax } from "utils/functions";
+import { BasicModal } from "../modals";
 
 const SkillsWrapper = styled.div`
   display: inline-grid;
@@ -46,14 +46,16 @@ const SkillsSlideshow = () => {
           setOpen(true);
         }}
       />
-      <Modal
+
+      <BasicModal
         open={open}
+        title={"Skills"}
         closeModal={() => {
           setOpen(false);
         }}
       >
         <SkillsWrapper>{skillsArr}</SkillsWrapper>
-      </Modal>
+      </BasicModal>
     </>
   );
 };

@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  Card,
-  CardHeader,
-  CardContent,
-  CardFooter,
-} from "components/common/card";
+import { Card, CardHeader, CardContent } from "components/common/card";
 
 type Props = {
   img: string;

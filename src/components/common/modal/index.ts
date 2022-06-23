@@ -1,3 +1,9 @@
-import Modal from "./Modal";
+import {
+  Modal,
+  ModalBody,
+  ModalHeader,
+  ModalFooter,
+  ModalContent,
+} from "./styles";
 
-export default Modal;
+export { Modal, ModalBody, ModalHeader, ModalFooter, ModalContent };

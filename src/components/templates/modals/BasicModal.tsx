@@ -1,21 +1,27 @@
 import React from "react";
 import {
-  useSpring,
+  Modal,
+  ModalBody,
+  ModalHeader,
+  ModalContent,
+} from "components/common/modal";
+import { AnimatedOverlay } from "components/common/globals/common";
+import {
   useTransition,
+  useSpring,
   useChain,
   useSpringRef,
+  animated,
   config,
 } from "react-spring";
-import { AnimatedOverlay } from "../globals/common";
-import { Wrapper, Container, Content } from "./styles";
 
 type Props = {
   children: React.ReactNode;
   open: boolean;
-  closeModal: () => void; //Call function when close button or overlay is clicked
+  title: string;
+  closeModal: () => void;
 };
-
-const Modal = ({ children, open, closeModal }: Props) => {
+const BasicModal = ({ open, title, closeModal, children }: Props) => {
   const modalApi = useSpringRef();
   const overlayApi = useSpringRef();
   const contentApi = useSpringRef();
@@ -37,6 +43,7 @@ const Modal = ({ children, open, closeModal }: Props) => {
 
   const contentStyles = useSpring({
     ref: contentApi,
+    from: { opacity: open ? 0 : 1 },
     to: { opacity: open ? 1 : 0 },
   });
   useChain(
@@ -53,12 +60,16 @@ const Modal = ({ children, open, closeModal }: Props) => {
           item && (
             <>
               <AnimatedOverlay style={overlayStyles} onClick={closeModal} />
-
-              <Wrapper>
-                <Container style={style}>
-                  <Content style={contentStyles}>{children}</Content>
-                </Container>
-              </Wrapper>
+              <Modal>
+                <animated.div style={style}>
+                  <ModalBody>
+                    <ModalHeader>{title}</ModalHeader>
+                    <animated.div style={contentStyles}>
+                      <ModalContent>{children}</ModalContent>
+                    </animated.div>
+                  </ModalBody>
+                </animated.div>
+              </Modal>
             </>
           )
       )}
@@ -66,4 +77,4 @@ const Modal = ({ children, open, closeModal }: Props) => {
   );
 };
 
-export default Modal;
+export { BasicModal };
