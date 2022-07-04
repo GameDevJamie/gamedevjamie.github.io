@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
 import { useSpringCarousel } from "react-spring-carousel";
-import { H2 } from "../globals/typography";
-import { Wrapper } from "./styles";
 
 type Props = {
   items: Array<React.ReactNode>;
@@ -9,20 +7,9 @@ type Props = {
   loop: boolean;
   autoplay: boolean;
   delay: number;
-
-  title: string;
-  onClick: () => void;
 };
 
-const Carousel = ({
-  items,
-  itemsPerSlide,
-  loop,
-  autoplay,
-  delay,
-  title,
-  onClick,
-}: Props) => {
+const Carousel = ({ items, itemsPerSlide, loop, autoplay, delay }: Props) => {
   const { carouselFragment, slideToNextItem, useListenToCustomEvent } =
     getSpringCarousel(items, itemsPerSlide, loop);
 
@@ -47,14 +34,7 @@ const Carousel = ({
     }
   });
 
-  return (
-    <div style={{ marginTop: "30px" }}>
-      <H2 style={{ textAlign: "left", marginLeft: "20px" }}>{title}</H2>
-      <Wrapper onClick={onClick} style={{ overflow: "hidden" }}>
-        {carouselFragment}
-      </Wrapper>
-    </div>
-  );
+  return <div style={{ overflow: "hidden" }}>{carouselFragment}</div>;
 };
 
 function getSpringCarousel(

@@ -1,12 +1,12 @@
-import { graphql } from "gatsby"
+import { graphql } from "gatsby";
 
 export type SocialDataType = {
-  name: string
-  href: string
-  icon: string
-}
+  name: string;
+  href: string;
+  icon: string;
+};
 
-export const siteMetaData = graphql`
+export const socialData = graphql`
   fragment SocialData on SiteSiteMetadata {
     social {
       name
@@ -14,4 +14,4 @@ export const siteMetaData = graphql`
       icon
     }
   }
-`
+`;

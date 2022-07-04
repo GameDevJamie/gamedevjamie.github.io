@@ -1,10 +1,8 @@
 import styled from "styled-components";
-import { theme } from "utils/theme";
-import { mediaMin } from "utils/functions";
 
 const Modal = styled.div`
   width: auto;
-  height: 98%;
+  height: auto;
 
   position: fixed;
   top: 50%;
@@ -15,10 +13,6 @@ const Modal = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  ${mediaMin(theme.device.breakPoints.tablet)} {
-    height: 90%;
-  }
 `;
 
 const ModalBody = styled.div`
@@ -30,6 +24,7 @@ const ModalBody = styled.div`
 `;
 
 const ModalHeader = styled.div`
+  text-align: center;
   border-bottom: 1px solid black;
 `;
 

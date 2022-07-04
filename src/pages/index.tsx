@@ -8,6 +8,7 @@ import SectionHandler from "components/templates/sections";
 import About from "components/templates/about";
 import { theme } from "utils/theme";
 import { mediaMax, mediaMin } from "utils/functions";
+import SkillsFooter from "components/templates/skillsFooter";
 
 const MainWrapper = styled.div`
   display: flex;
@@ -28,6 +29,7 @@ const ContentWrapper = styled.div`
 
   ${mediaMin(theme.device.breakPoints.tablet)} {
     width: 50%;
+    position: relative;
   }
 `;
 
@@ -64,6 +66,7 @@ export default function Home() {
           {/*<Navbar onChange={sectionChange} />
           /*<SectionHandler section={section} />*/}
           <About />
+          <SkillsFooter />
         </ContentWrapper>
       </MainWrapper>
     </ThemeProvider>

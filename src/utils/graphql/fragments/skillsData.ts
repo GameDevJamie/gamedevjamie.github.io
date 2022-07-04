@@ -5,7 +5,7 @@ export type SkillsDataType = {
   title: string;
 };
 
-export const siteMetaData = graphql`
+export const skillsData = graphql`
   fragment SkillsData on SiteSiteMetadata {
     skills {
       icon
