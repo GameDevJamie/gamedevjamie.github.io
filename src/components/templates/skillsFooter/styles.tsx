@@ -7,13 +7,14 @@ const Wrapper = styled.div`
   width: 100%;
   height: 50px;
   background-color: white;
-  position: absolute;
-  left: 0;
+  position: fixed;
+  right: 0;
   bottom: 0;
   cursor: pointer;
 
   ${mediaMin(theme.device.breakPoints.tablet)} {
     height: 65px;
+    width: 50%;
   }
 `;
 

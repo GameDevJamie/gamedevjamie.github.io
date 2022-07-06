@@ -5,7 +5,7 @@ export type ProjectData = {
   html: string;
   frontmatter: {
     title: string;
-    tags: string;
+    tags: string[];
     itchio: string;
     thumb: {
       childImageSharp: {

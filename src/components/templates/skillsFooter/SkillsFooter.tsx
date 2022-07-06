@@ -33,8 +33,8 @@ const SkillsFooter = () => {
           items={skillsArr1}
           loop={true}
           autoplay={true}
-          delay={2000}
-          itemsPerSlide={4}
+          delay={0}
+          itemsPerSlide={5}
         />
       </Wrapper>
 

@@ -1,6 +1,6 @@
 ---
 title: Flappy Bird Clone
-tags: Unity, C#
+tags: ["Unity", "C#"]
 thumb: ../images/flappy-bird-clone/Flappy Bird Thumbnail.png
 itchio: https://itchio.com
 

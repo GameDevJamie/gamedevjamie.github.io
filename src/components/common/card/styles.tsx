@@ -9,6 +9,7 @@ const Card = styled.div`
 `;
 
 const CardHeader = styled.div`
+  width: 100%;
   border-bottom: 1px solid black;
 `;
 

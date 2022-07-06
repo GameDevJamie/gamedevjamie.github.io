@@ -3,12 +3,11 @@ import styled from "styled-components";
 import { ThemeProvider } from "styled-components";
 import GlobalStyles from "GlobalStyles";
 import Head from "components/common/head";
-import Navbar from "components/templates/navbar";
-import SectionHandler from "components/templates/sections";
 import About from "components/templates/about";
 import { theme } from "utils/theme";
-import { mediaMax, mediaMin } from "utils/functions";
+import { mediaMin } from "utils/functions";
 import SkillsFooter from "components/templates/skillsFooter";
+import ProjectsCarousel from "components/templates/projectsCarousel";
 
 const MainWrapper = styled.div`
   display: flex;
@@ -44,12 +43,6 @@ const Video = styled.video`
 `;
 
 export default function Home() {
-  const [section, setSection] = useState("about");
-
-  const sectionChange = (id: string) => {
-    setSection(id);
-  };
-
   return (
     <ThemeProvider theme={{ mode: "light", size: "normal" }}>
       <Head />
@@ -63,9 +56,8 @@ export default function Home() {
         </VideoWrapper>
 
         <ContentWrapper>
-          {/*<Navbar onChange={sectionChange} />
-          /*<SectionHandler section={section} />*/}
           <About />
+          <ProjectsCarousel />
           <SkillsFooter />
         </ContentWrapper>
       </MainWrapper>
