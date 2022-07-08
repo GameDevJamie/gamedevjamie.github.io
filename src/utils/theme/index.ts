@@ -31,33 +31,39 @@ const theme = {
   colors: {
     background: "#eeeeee",
     primary: "#C52AF5",
+    secondary: "#000",
     text: "#232320",
-
     social: {
       facebook: "",
       twitter: "#07c3ed",
       github: "#9614c9",
       itchio: "#f71652",
       linkedin: "#145dc9",
-      getColor(type: string) {
-        switch (type.toUpperCase()) {
-          case "TWITTER":
-            return theme.colors.social.twitter;
-          case "GITHUB":
-            return theme.colors.social.github;
-          case "ITCHIO":
-            return theme.colors.social.itchio;
-          case "LINKEDIN":
-            return theme.colors.social.linkedin;
-          default:
-            return "#000";
-        }
-      },
+    },
+    getColor(color: string) {
+      switch (color.toLowerCase()) {
+        case "primary":
+          return theme.colors.primary;
+        case "secondary":
+          return theme.colors.secondary;
+        case "facebook":
+          return theme.colors.social.facebook;
+        case "linkedin":
+          return theme.colors.social.linkedin;
+        case "github":
+          return theme.colors.social.github;
+        case "twitter":
+          return theme.colors.social.twitter;
+        case "itchio":
+          return theme.colors.social.itchio;
+      }
     },
   },
 
   typography: {
     baseSize: 18,
+    fontSize: (sizeInPx: number) =>
+      `${sizeInPx / theme.typography.baseSize}rem`,
     fontFamily: css`
       font-family: "Fredoka", sans-serif;
     `,
