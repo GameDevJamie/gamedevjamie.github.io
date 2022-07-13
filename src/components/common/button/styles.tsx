@@ -1,16 +1,6 @@
 import styled, { css } from "styled-components";
 import { theme } from "utils/theme";
 
-const BasicButton = styled.button`
-  position: relative;
-
-  width: 100px;
-  height: 50px;
-  border-radius: 10px;
-  background: white;
-  color: black;
-`;
-
 interface Props {
   variant?: string;
   size?: string;
@@ -33,22 +23,23 @@ const Button = styled.a<Props>`
   min-width: 65px;
   line-height: 1.75;
   cursor: pointer;
+  transition: all 0.25s ease-in-out;
 
   ${props => {
     switch (props.size) {
       case "small":
         return `
-          font-size: ${theme.typography.fontSize(10)}; 
+          font-size: ${theme.typography.fontSize(18)}; 
           padding: 4px 10px;
         `;
       case "medium":
         return `
-          font-size: ${theme.typography.fontSize(14)}; 
+          font-size: ${theme.typography.fontSize(22)}; 
           padding: 6px 16px;
         `;
       case "large":
         return `
-          font-size: ${theme.typography.fontSize(18)}; 
+          font-size: ${theme.typography.fontSize(26)}; 
           padding: 8px 22px;
         `;
     }
@@ -82,6 +73,27 @@ const Button = styled.a<Props>`
 
 const IconButton = styled(Button)`
   border-radius: 50%;
+  padding: 0px;
+  min-width: 0px;
+  ${props => {
+    switch (props.size) {
+      case "small":
+        return `
+          width: 30px;
+          height: 30px;
+        `;
+      case "medium":
+        return `
+          width: 40px;
+          height: 40px;
+        `;
+      case "large":
+        return `
+          width: 50px;
+          height: 50px;
+        `;
+    }
+  }}
 `;
 
 const transparentStyle = css<Props>`
@@ -197,4 +209,4 @@ const outlinedStyle = css<Props>`
   }
 `;
 
-export { BasicButton, IconButton };
+export { Button, IconButton };

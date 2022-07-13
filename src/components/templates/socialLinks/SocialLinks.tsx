@@ -32,7 +32,7 @@ const SocialLinks = ({ hasBackground }: Props) => {
     return (
       <IconButton
         variant="outlined"
-        size="small"
+        size="medium"
         color={s.icon}
         hoverEffect="color"
       >

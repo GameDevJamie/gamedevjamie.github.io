@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { SectionWrapper, SectionContent } from "./styles";
 import { H1, Tag } from "components/common/globals/typography";
-import { FlexAlign } from "components/common/globals/flex";
+import { FlexAlign } from "components/common/globals/layout";
 import { List } from "components/common/list";
 import { TypeWriter } from "components/common/typewriter";
 import { mediaMax } from "utils/functions";

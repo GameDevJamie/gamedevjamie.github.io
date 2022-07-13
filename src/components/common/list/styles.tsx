@@ -1,12 +1,12 @@
-import styled from "styled-components"
-import { theme } from "utils/theme"
-import { mediaMin } from "utils/functions"
-import { FlexAlign } from "../globals/flex"
+import styled from "styled-components";
+import { theme } from "utils/theme";
+import { mediaMin } from "utils/functions";
+import { FlexAlign } from "../globals/layout";
 
 interface ListWrapperProps {
-  align: FlexAlign
-  flexDir: string
-  mobileFlexDir?: string
+  align: FlexAlign;
+  flexDir: string;
+  mobileFlexDir?: string;
 }
 
 const ListWrapper = styled.ul<ListWrapperProps>`
@@ -21,24 +21,24 @@ const ListWrapper = styled.ul<ListWrapperProps>`
   ${mediaMin(theme.device.breakPoints.mobileL)} {
     flex-direction: ${props => props.flexDir};
   }
-`
+`;
 
 const ListItem = styled.li`
   margin-left: 10px;
   margin-right: 10px;
-`
+`;
 
 function getJustifyAlign(align: FlexAlign) {
   switch (align) {
     case FlexAlign.Left:
-      return "justify-content: start;"
+      return "justify-content: start;";
     case FlexAlign.Center:
-      return "justify-content: center;"
+      return "justify-content: center;";
     case FlexAlign.Right:
-      return "justify-content: end;"
+      return "justify-content: end;";
     default:
-      return "justify-content: start;"
+      return "justify-content: start;";
   }
 }
 
-export { ListWrapper, ListItem }
+export { ListWrapper, ListItem };

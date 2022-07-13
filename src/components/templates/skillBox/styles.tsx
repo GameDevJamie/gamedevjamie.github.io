@@ -13,6 +13,8 @@ const Wrapper = styled.div`
   color: black;
   transition: all 0.3s ease;
 
+  font-size: 1.7rem;
+
   display: flex;
   flex-direction: column;
   align-items: center;

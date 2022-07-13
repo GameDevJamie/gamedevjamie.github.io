@@ -1,6 +1,5 @@
 import React from "react";
-import { StyledComponent } from "styled-components";
-import { BasicButton } from "./styles";
+import { StyledComponent } from "styled-components"; //
 
 type Props = {
   children: React.ReactNode;
@@ -18,6 +17,6 @@ const handleLinkWrapping = (
   return button;
 };
 
-const Button = (props: Props) => handleLinkWrapping(BasicButton, props);
+//const Button = (props: Props) => handleLinkWrapping(BasicButton, props);
 
-export { Button };
+//export { Button };

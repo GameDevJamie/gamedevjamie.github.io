@@ -1,4 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
+import Layout from "components/modules/layout";
+
+export default function Home() {
+  return (
+    <Layout>
+      <div></div>
+    </Layout>
+  );
+}
+
+/*import React, { useState } from "react";
 import styled from "styled-components";
 import { ThemeProvider } from "styled-components";
 import GlobalStyles from "GlobalStyles";
@@ -8,6 +19,7 @@ import { theme } from "utils/theme";
 import { mediaMin } from "utils/functions";
 import SkillsFooter from "components/templates/skillsFooter";
 import ProjectsCarousel from "components/templates/projectsCarousel";
+import Switch from "components/common/switch";
 
 const MainWrapper = styled.div`
   display: flex;
@@ -56,6 +68,7 @@ export default function Home() {
         </VideoWrapper>
 
         <ContentWrapper>
+          <Switch />
           <About />
           <ProjectsCarousel />
           <SkillsFooter />
@@ -64,3 +77,4 @@ export default function Home() {
     </ThemeProvider>
   );
 }
+*/

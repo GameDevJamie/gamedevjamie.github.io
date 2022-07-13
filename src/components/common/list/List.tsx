@@ -1,5 +1,5 @@
 import React from "react";
-import { FlexAlign } from "../globals/flex";
+import { FlexAlign } from "../globals/layout";
 import { ListWrapper, ListItem } from "./styles";
 
 type Props = {
