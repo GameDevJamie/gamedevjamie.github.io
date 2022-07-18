@@ -5,7 +5,9 @@ import GlobalStyles from "GlobalStyles";
 import Header from "components/modules/header";
 import { Container } from "components/common/globals/layout";
 
-const Wrapper = styled.div``;
+const Wrapper = styled(Container)`
+  padding-top: 50px;
+`;
 
 type Props = {
   children: React.ReactNode;
@@ -16,6 +18,8 @@ const Layout = ({ children }: Props) => {
   function toggleTheme(mode: string) {
     if (mode === "light") setTheme("light");
     else setTheme("dark");
+
+    console.log(mode);
   }
   function navClick(name: string) {
     console.log(name);
@@ -26,10 +30,10 @@ const Layout = ({ children }: Props) => {
       <Head />
       <GlobalStyles />
 
-      <Wrapper>
+      <div>
         <Header onNavClick={navClick} onThemeToggle={toggleTheme} />
-        <Container>{children}</Container>
-      </Wrapper>
+        <Wrapper>{children}</Wrapper>
+      </div>
     </ThemeProvider>
   );
 };

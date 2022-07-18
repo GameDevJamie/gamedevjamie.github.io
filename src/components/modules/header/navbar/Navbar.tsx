@@ -17,7 +17,7 @@ const Navbar = ({ onChange }: Props) => {
     {
       id: "home",
       name: "home",
-      icon: IconType.User,
+      icon: IconType.Home,
     },
     {
       id: "about",

@@ -9,6 +9,11 @@ const Wrapper = styled(Container)`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  overflow: hidden;
+
+  ${mediaMin(theme.device.breakPoints.tablet)} {
+    padding: 40px 0px;
+  }
 `;
 
 const Brand = styled.a`

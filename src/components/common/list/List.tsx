@@ -26,8 +26,9 @@ const List = ({ items, align, direction, mobileDirection }: Props) => {
 };
 
 List.defaultProps = {
-  align: FlexAlign.Center,
+  align: FlexAlign.Left,
   direction: "row",
+  mobileDirection: "row",
 };
 
 export { List };

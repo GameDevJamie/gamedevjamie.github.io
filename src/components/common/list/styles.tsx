@@ -18,15 +18,34 @@ const ListWrapper = styled.ul<ListWrapperProps>`
   flex-direction: ${props =>
     props.mobileFlexDir ? props.mobileFlexDir : props.flexDir};
 
+  > li {
+    ${props =>
+      props.mobileFlexDir == "row"
+        ? `
+            margin-left: 10px; 
+            margin-right: 10px;`
+        : `
+            margin-top: 10px;
+          `}
+  }
+
   ${mediaMin(theme.device.breakPoints.mobileL)} {
     flex-direction: ${props => props.flexDir};
+    li {
+      margin: 0;
+      ${props =>
+        props.flexDir == "row"
+          ? `
+              margin-left: 10px; 
+              margin-right: 10px;`
+          : `
+              margin-top: 10px;
+            `}
+    }
   }
 `;
 
-const ListItem = styled.li`
-  margin-left: 10px;
-  margin-right: 10px;
-`;
+const ListItem = styled.li``;
 
 function getJustifyAlign(align: FlexAlign) {
   switch (align) {

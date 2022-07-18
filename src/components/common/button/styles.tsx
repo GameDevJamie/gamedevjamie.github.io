@@ -20,7 +20,8 @@ const Button = styled.a<Props>`
   align-items: center;
   justify-content: center;
 
-  min-width: 65px;
+  min-width: 100px;
+  min-height: 2rem;
   line-height: 1.75;
   cursor: pointer;
   transition: all 0.25s ease-in-out;

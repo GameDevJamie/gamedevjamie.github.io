@@ -6,7 +6,12 @@ import {
   faGithub,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
-import { faLaptopCode } from "@fortawesome/free-solid-svg-icons";
+import {
+  faLaptopCode,
+  faHouse,
+  faSun,
+  faMoon,
+} from "@fortawesome/free-solid-svg-icons";
 import {
   faUser,
   faFilePdf,
@@ -21,10 +26,14 @@ enum IconType {
   LinkedIn = "LinkedIn",
   ItchIo = "ItchIo",
 
+  Home = "Home",
   User = "User",
   Skills = "Skills",
   Projects = "Projects",
   File = "File",
+
+  Sun = "Sun",
+  Moon = "Moon",
 
   //DEVICONS
   CPlusPlus = "CPlusPlus",
@@ -78,6 +87,8 @@ function getIcon(icon: IconType, defaultColor: boolean) {
     case IconType.ItchIo:
       return <FontAwesomeIcon icon={faItchIo} />;
 
+    case IconType.Home:
+      return <FontAwesomeIcon icon={faHouse} />;
     case IconType.User:
       return <FontAwesomeIcon icon={faUser} />;
     case IconType.Skills:
@@ -86,6 +97,11 @@ function getIcon(icon: IconType, defaultColor: boolean) {
       return <FontAwesomeIcon icon={faHeart} />;
     case IconType.File:
       return <FontAwesomeIcon icon={faFilePdf} />;
+
+    case IconType.Sun:
+      return <FontAwesomeIcon icon={faSun} />;
+    case IconType.Moon:
+      return <FontAwesomeIcon icon={faMoon} />;
 
     default:
       return <i></i>;

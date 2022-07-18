@@ -1,6 +1,8 @@
 import React from "react";
 import { Wrapper, Brand, BrandName, PlaceHolder } from "./styles";
 import Navbar from "./navbar";
+import ThemeSwitcher from "./themeSwitcher";
+import { FlexRow } from "components/common/globals/layout";
 
 type Props = {
   onNavClick: (name: string) => void;
@@ -14,10 +16,10 @@ const Header = ({ onNavClick, onThemeToggle }: Props) => {
         <PlaceHolder />
         <BrandName>Jamie Tumalty</BrandName>
       </Brand>
-      <div>
+      <FlexRow>
         <Navbar onChange={onNavClick} />
-        {/*<ThemeSwitcher onThemeToggle={onThemeToggle} />*/}
-      </div>
+        <ThemeSwitcher onThemeToggle={onThemeToggle} />
+      </FlexRow>
     </Wrapper>
   );
 };
