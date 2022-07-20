@@ -1,52 +1,60 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
+import { theme } from "utils/theme";
 
-const Wrapper = styled.div`
-  position: relative;
-  width: 200px;
-`;
+/*
+background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(253, 203, 50, 1) 0%,
+    rgba(244, 56, 98, 1) 100.2%
+  );
+  
+  background-image: linear-gradient(
+      109.8deg,
+      rgba(62, 5, 116, 1) -5.2%,
+      rgba(41, 14, 151, 1) -5.2%,
+      rgba(216, 68, 148, 1) 103.3%
+    );
+*/
 
-const SliderWrapper = styled.label`
-  position: absolute;
-  width: 100%;
-  height: 100px;
-  border-radius: 50px;
-  background-color: black;
+interface ContainerStyles {
+  onColor: string;
+  offColor: string;
+}
+const Container = styled.div<ContainerStyles>`
+  height: 2rem;
+  width: 3.4rem;
+  background: ${props => props.offColor};
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 5px;
   cursor: pointer;
-`;
+  transition: all 0.3s;
 
-const Input = styled.input`
-  position: absolute;
-  display: none;
-`;
-
-const Slider = styled.span`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 50px;
-  transition: 0.3s;
-
-  &:before {
-    content: "";
-    position: absolute;
-    top: 13px;
-    left: 16px;
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
-    box-shadow: inset 28px -4px 0px 0px white;
-    background-color: black;
-    transition: 0.3s;
+  .icon {
+    color: ${props => props.offColor};
   }
 
-  ${Input}:checked + & {
-    background-color: white;
-  }
-  ${Input}:checked + &:before {
-    transform: translateX(95px);
-    background-color: black;
-    box-shadow: none;
+  &[data-switchOn="true"] {
+    background: ${props => props.onColor};
+
+    .icon {
+      color: ${props => props.onColor};
+    }
   }
 `;
 
-export { Wrapper, SliderWrapper, Input, Slider };
+const Handle = styled(motion.div)`
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  background-color: #fff;
+  overflow: hidden;
+`;
+
+export { Container, Handle };

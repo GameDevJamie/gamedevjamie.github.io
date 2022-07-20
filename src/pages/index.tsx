@@ -8,7 +8,8 @@ import { TypeWriter } from "components/common/typewriter";
 import { Icon, IconType } from "components/common/icon";
 import SocialLinks from "components/templates/socialLinks";
 import { Button } from "components/common/button";
-import { List } from "components/common/list";
+import { List as OldList } from "components/common/list";
+import { List, ListItem } from "components/common/newList";
 
 const Wrapper = styled.div`
   display: flex;
@@ -71,10 +72,18 @@ export default function Home() {
             <Icon icon={IconType.Gatsby} />.
           </P>
           <div style={{ marginTop: "10px" }}>
-            <List
+            <OldList
               items={[<Button variant="contained">CV</Button>, <SocialLinks />]}
               mobileDirection="column"
             />
+            <List type="row">
+              <ListItem>
+                <Button variant="contained">CV</Button>
+              </ListItem>
+              <ListItem>
+                <Button variant="contained">CV</Button>
+              </ListItem>
+            </List>
           </div>
         </ContentWrapper>
         <VideoWrapper>

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { theme } from "utils/theme";
 import { mediaMin } from "utils/functions";
 import { FlexAlign } from "../globals/layout";
+import { motion } from "framer-motion";
 
 interface ListWrapperProps {
   align: FlexAlign;
@@ -9,7 +10,7 @@ interface ListWrapperProps {
   mobileFlexDir?: string;
 }
 
-const ListWrapper = styled.ul<ListWrapperProps>`
+const ListWrapper = styled(motion.ul)<ListWrapperProps>`
   list-style: none;
 
   display: flex;
@@ -45,7 +46,7 @@ const ListWrapper = styled.ul<ListWrapperProps>`
   }
 `;
 
-const ListItem = styled.li``;
+const ListItem = styled(motion.li)``;
 
 function getJustifyAlign(align: FlexAlign) {
   switch (align) {

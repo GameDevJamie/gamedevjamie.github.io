@@ -1,12 +1,13 @@
 import React from "react";
 import { Wrapper, Brand, BrandName, PlaceHolder } from "./styles";
 import Navbar from "./navbar";
-import ThemeSwitcher from "./themeSwitcher";
 import { FlexRow } from "components/common/globals/layout";
+import Switch from "components/common/switch";
+import { IconType } from "components/common/icon";
 
 type Props = {
   onNavClick: (name: string) => void;
-  onThemeToggle: (mode: string) => void;
+  onThemeToggle: (isDark: boolean) => void;
 };
 
 const Header = ({ onNavClick, onThemeToggle }: Props) => {
@@ -18,7 +19,11 @@ const Header = ({ onNavClick, onThemeToggle }: Props) => {
       </Brand>
       <FlexRow>
         <Navbar onChange={onNavClick} />
-        <ThemeSwitcher onThemeToggle={onThemeToggle} />
+        <Switch
+          onToggle={onThemeToggle}
+          offIcon={IconType.Sun}
+          onIcon={IconType.Moon}
+        />
       </FlexRow>
     </Wrapper>
   );

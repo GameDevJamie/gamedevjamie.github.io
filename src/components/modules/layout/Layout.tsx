@@ -15,12 +15,11 @@ type Props = {
 
 const Layout = ({ children }: Props) => {
   const [theme, setTheme] = useState("light");
-  function toggleTheme(mode: string) {
-    if (mode === "light") setTheme("light");
+  function toggleTheme(isDark: boolean) {
+    if (!isDark) setTheme("light");
     else setTheme("dark");
-
-    console.log(mode);
   }
+
   function navClick(name: string) {
     console.log(name);
   }

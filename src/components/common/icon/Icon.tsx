@@ -6,16 +6,13 @@ import {
   faGithub,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
-import {
-  faLaptopCode,
-  faHouse,
-  faSun,
-  faMoon,
-} from "@fortawesome/free-solid-svg-icons";
+import { faLaptopCode, faHouse } from "@fortawesome/free-solid-svg-icons";
 import {
   faUser,
   faFilePdf,
   faHeart,
+  faSun,
+  faMoon,
 } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { theme } from "utils/theme";
