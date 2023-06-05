@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es6",
+    "target": "ES5",
     "jsx": "preserve",
     "lib": ["dom", "es2015", "es2017"],
     "strict": true,
@@ -11,7 +11,16 @@
     "skipLibCheck": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "removeComments": false
+    "removeComments": false,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+
+    "baseUrl": "./src",
+    "paths": {
+      "*": ["types/*", "*"]
+      //"@components": ["src/components/*"]
+    }
   },
   "include": ["./src/**/*"]
 }
