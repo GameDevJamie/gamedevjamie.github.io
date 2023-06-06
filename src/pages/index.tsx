@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Stack } from 'components/ui/layout';
-
-import { IconButton } from 'components/ui/input';
+import SocialLinks from 'components/socialLinks';
 
 export default () => {
   return (
@@ -18,15 +17,7 @@ export default () => {
         <div>Item 3</div>
       </Stack>
 
-      <Stack direction="row">
-        <IconButton size="small" />
-        <IconButton size="medium" />
-        <IconButton size="large" />
-      </Stack>
-
-      <IconButton
-        size={{ xs: 'small', sm: 'small', md: 'large', lg: 'medium' }}
-      />
+      <SocialLinks />
     </>
   );
 };

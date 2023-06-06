@@ -1,22 +1,41 @@
-import styled, { css } from 'styled-components';
-import { mediaMin } from 'utils/media';
-
-type test = 'small' | 'medium' | 'large';
-console.log(mediaMin('600px'));
-
-type ScreenSize = {
-  xs?: test;
-  sm?: test;
-  md?: test;
-  lg?: test;
-};
+import styled from 'styled-components';
+import { getSizes } from 'utils/test';
 
 interface Props {
-  size: test | ScreenSize;
+  size: sizes | ScreenSize;
 }
 
-function isTest(pet: test | ScreenSize): pet is test {
-  switch (pet as test) {
+const Button = styled.button``;
+
+const StyledIconButton = styled(Button)<Props>`
+  border-radius: 50%;
+  background-color: white;
+  border: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  ${(p) => getSizes(p.size, iconSizes)}
+`;
+
+function iconSizes(size: sizes) {
+  switch (size) {
+    case 'small':
+      return `padding: 5px; font-size: 1.25rem;`;
+
+    case 'medium':
+      return `padding: 8px; font-size: 1.5rem;`;
+
+    case 'large':
+      return `padding: 12px; font-size: 1.75rem;`;
+  }
+}
+
+//PLACE IN OWN FILE TO BE USED ANYWHERE
+//--------------------
+/*
+function isSizes(pet: sizes | ScreenSize): pet is sizes {
+  switch (pet as sizes) {
     case 'small':
     case 'medium':
     case 'large':
@@ -27,65 +46,27 @@ function isTest(pet: test | ScreenSize): pet is test {
   }
 }
 
-const Button = styled.button``;
-
-const IconButton = styled(Button)<Props>`
-  border-radius: 50%;
-  background-color: black;
-  border: 0;
-
-  ${(p) => (isTest(p.size) ? foo : bar)}
-`;
-
-const foo = css<Props>`
-  ${(p) => isTest(p.size) && getSize(p.size)}
-`;
-
-const bar = css<Props>`
-  ${(p) =>
-    !isTest(p.size) &&
-    `
-        ${
-          p.size.xs &&
-          `${mediaMin('600px')}{
-            ${getSize(p.size.xs)}
-        }`
-        }
-
-        ${
-          p.size.sm &&
-          `${mediaMin('900px')}{
-              ${getSize(p.size.sm)}
-          }`
-        }
-
-        ${
-          p.size.md &&
-          `${mediaMin('1200px')}{
-            ${getSize(p.size.md)}
-        }`
-        }
-
-        ${
-          p.size.lg &&
-          `${mediaMin('1500px')}{
-              ${getSize(p.size.lg)}
-          }`
-        }
-`}
-`;
-
-function getSize(size: test) {
-  switch (size) {
-    case 'small':
-      return `width: 1em; height: 1em;`;
-
-    case 'medium':
-      return `width: 2em; height: 2em;`;
-
-    case 'large':
-      return `width: 3em; height: 3em;`;
+//Calls the given function based on the sizes type and for each breakpoint
+function getSizes(sizes: sizes | ScreenSize, testFoo: (s: sizes) => string) {
+  if (isSizes(sizes)) return testFoo(sizes);
+  if (!isSizes(sizes)) {
+    return (
+      getMediaSize(testFoo, '600px', sizes.xs) +
+      getMediaSize(testFoo, '900px', sizes.sm) +
+      getMediaSize(testFoo, '1200px', sizes.md) +
+      getMediaSize(testFoo, '1500px', sizes.lg)
+    );
   }
 }
 
-export { IconButton };
+function getMediaSize(
+  testFoo: (s: sizes) => string,
+  breakPoint: string,
+  s?: sizes
+) {
+  if (!s) return ``;
+  return `${mediaMin(breakPoint)}{${testFoo(s)}}`;
+}
+//--------------------
+*/
+export { StyledIconButton };

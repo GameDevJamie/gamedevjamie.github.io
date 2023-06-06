@@ -9,14 +9,34 @@ const links = [
     icon: IconType.Twitter,
     href: '',
   },
+  {
+    name: 'Linkedin',
+    icon: IconType.Twitter,
+    href: '',
+  },
+  {
+    name: 'Github',
+    icon: IconType.Twitter,
+    href: '',
+  },
+  {
+    name: 'ItchIo',
+    icon: IconType.Twitter,
+    href: '',
+  },
 ];
 
 const SocialLinks = () => {
   const items = links.map((link) => (
-    <IconButton icon={link.icon} href={link.href} key={link.name} />
+    <IconButton
+      icon={link.icon}
+      href={link.href}
+      key={link.name}
+      size={{ md: 'large', lg: 'small' }}
+    />
   ));
 
-  return <Stack>{items}</Stack>;
+  return <Stack direction="row">{items}</Stack>;
 };
 
 export default SocialLinks;
