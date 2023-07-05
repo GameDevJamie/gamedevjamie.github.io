@@ -7,5 +7,5 @@
 const path = require('path');
 
 module.exports = {
-  plugins: ['gatsby-plugin-root-import'],
+  plugins: ['gatsby-plugin-root-import', 'gatsby-plugin-postcss'],
 };
