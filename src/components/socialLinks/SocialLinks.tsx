@@ -13,7 +13,7 @@ const links: LinkDef[] = [
     name: 'Twitter',
     color: 'twitter',
     icon: IconType.Twitter,
-    href: '',
+    href: 'https://www.twitter.com',
   },
   {
     name: 'Linkedin',

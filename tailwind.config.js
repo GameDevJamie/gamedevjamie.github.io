@@ -3,6 +3,7 @@ module.exports = {
   content: [
     './src/pages/**/*.{js,jsx,ts,tsx}',
     './src/components/**/*.{js,jsx,ts,tsx}',
+    './src/sections/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
     extend: {
@@ -25,11 +26,14 @@ module.exports = {
         paper: '#FFF',
       },
       textColor: {
-        primary: '#000',
+        default: '#000',
         muted: '#000',
         contrast: {
           primary: '#FFF',
           twitter: '#FFF',
+          linkedin: '#FFF',
+          github: '#FFF',
+          itchio: '#FFF',
           paper: '#000',
         },
       },

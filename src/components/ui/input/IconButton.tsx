@@ -13,9 +13,9 @@ type Props = {
 };
 
 const sizeStyles = {
-  sm: 'p-2',
-  md: 'p-3',
-  lg: 'p-4',
+  sm: 'p-2 text-sm',
+  md: 'p-3 text-lg',
+  lg: 'p-4 text-xl',
 };
 
 const IconButton = ({ variant, color, size, onClick, href, icon }: Props) => {
@@ -29,7 +29,7 @@ const IconButton = ({ variant, color, size, onClick, href, icon }: Props) => {
       href={href}
       extraClassNames={classes}
     >
-      <Icon icon={icon} />
+      <Icon icon={icon} fontSize="inherit" color="inherit" />
     </ButtonBase>
   );
 };

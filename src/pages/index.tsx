@@ -1,12 +1,10 @@
 import * as React from 'react';
-import SocialLinks from 'components/socialLinks';
+import Home from 'sections/home';
 
 export default () => {
   return (
     <div>
-      <div className="container flex justify-center items-center h-screen">
-        <SocialLinks />
-      </div>
+      <Home />
     </div>
     /*<>
     

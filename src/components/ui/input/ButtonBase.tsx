@@ -22,7 +22,7 @@ const buttonStyles = {
     itchio: '',
   },
   outline: {
-    common: 'bg-transparent text-primary shadow-md',
+    common: 'bg-transparent text-default shadow-md',
     inherit: '',
     primary: 'border-primary hover:bg-primary hover:text-contrast-primary',
     twitter:
@@ -36,7 +36,7 @@ const buttonStyles = {
   },
   ghost: {
     common:
-      'bg-trasnparent border-transparent text-primary hover:bg-gray-400/25',
+      'bg-trasnparent border-transparent text-default hover:bg-gray-400/25',
     inherit: '',
     primary: '',
     twitter: '',
@@ -45,7 +45,7 @@ const buttonStyles = {
     itchio: '',
   },
   neutral: {
-    common: 'bg text-primary shadow-md',
+    common: 'bg text-default shadow-md',
     inherit: '',
     primary: '',
     twitter: 'hover:bg-social-twitter hover:text-contrast-twitter',
@@ -72,8 +72,10 @@ const ButtonBase = ({
 
   if (href) {
     return (
-      <a href={href} className={classes}>
-        <button onClick={onClick}>{children}</button>
+      <a href={href} target="_blank" className={classes}>
+        <button className="block" onClick={onClick}>
+          {children}
+        </button>
       </a>
     );
   } else {
