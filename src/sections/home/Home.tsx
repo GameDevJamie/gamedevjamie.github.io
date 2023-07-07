@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SocialLinks from 'components/socialLinks';
 import Icon, { IconType } from 'components/ui/display/Icon';
+import ParticleSystemCanvas from 'components/ParticleSystemCanvas';
+import WebMatrixParticleSystem from 'shared/classes/particleSystems/WebMatrixParticleSystem';
 
 const Home = () => {
+  const [particleSystem] = useState(new WebMatrixParticleSystem());
+
   return (
     <div className="container flex justify-center items-center h-screen">
-      <div className="flex flex-col justify-center items-center">
+      <ParticleSystemCanvas
+        particleSystem={particleSystem}
+        className="h-full w-full absolute top-0 left-0 -z-50"
+      />
+      <div className="flex flex-col justify-center items-center p-3 text-center">
         <h1 className="text-5xl text-default">Hi, I'm Jamie</h1>
         <h2 className="text-3xl text-default">A Software Developer</h2>
         <p className="text-base">

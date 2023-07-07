@@ -1,11 +1,11 @@
 import * as React from 'react';
 import Home from 'sections/home';
+import ParticleSystemCanvas from 'components/ParticleSystemCanvas';
+import WebMatrixParticleSystem from 'shared/classes/particleSystems/WebMatrixParticleSystem';
 
 export default () => {
   return (
-    <div>
-      <Home />
-    </div>
+    <Home />
     /*<>
     
       <Icon icon={IconType.Twitter} />
