@@ -1,14 +1,15 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from 'react';
 
 export default (
   draw: (ctx: CanvasRenderingContext2D, deltaTime: number) => void,
-  onResize?: (ctx: CanvasRenderingContext2D) => void
+  onResize?: (ctx: CanvasRenderingContext2D) => void,
+  onMouseMove?: (mouseX: number, mouseY: number) => void
 ) => {
   const canvasRef: any = useRef(null);
 
   const resizeReset = () => {
     const canvas = canvasRef.current;
-    const context = canvas.getContext("2d");
+    const context = canvas.getContext('2d');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
@@ -26,16 +27,22 @@ export default (
       }, delay);
     };
 
-    window.addEventListener("resize", deBouncer);
+    const handleMouseMove = (event: any) => {
+      onMouseMove && onMouseMove(event.clientX, event.clientY);
+    };
+
+    window.addEventListener('resize', deBouncer);
+    window.addEventListener('mousemove', handleMouseMove);
 
     return () => {
-      window.removeEventListener("resize", deBouncer);
+      window.removeEventListener('resize', deBouncer);
+      window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const context = canvas.getContext("2d");
+    const context = canvas.getContext('2d');
     let animationFrameId: number;
     let lastTime = new Date().getTime();
     let longestFrame = 2;

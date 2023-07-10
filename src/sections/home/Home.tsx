@@ -5,10 +5,10 @@ import ParticleSystemCanvas from 'components/ParticleSystemCanvas';
 import WebMatrixParticleSystem from 'shared/classes/particleSystems/WebMatrixParticleSystem';
 
 const Home = () => {
-  const [particleSystem] = useState(new WebMatrixParticleSystem());
+  const [particleSystem] = useState(new WebMatrixParticleSystem(100));
 
   return (
-    <div className="container flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center h-screen relative">
       <ParticleSystemCanvas
         particleSystem={particleSystem}
         className="h-full w-full absolute top-0 left-0 -z-50"

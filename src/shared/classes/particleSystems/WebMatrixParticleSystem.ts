@@ -6,6 +6,7 @@ export default class WebMatrixParticleSystem implements ParticleSystem {
   private numParticles: number;
   private minParticleSpeed: number = 30;
   private maxParticleSpeed: number = 100;
+  private minParticleRadius: number = 1;
   private maxParticleRadius: number = 3;
   private maxOpacity: number = 0.3;
 
@@ -14,6 +15,8 @@ export default class WebMatrixParticleSystem implements ParticleSystem {
   private prevWidth: number = 0;
   private prevHeight: number = 0;
   private test: boolean = true;
+
+  private mouseParticle: Vector = new Vector();
 
   constructor(particles: number = 50) {
     this.numParticles = particles;
@@ -27,9 +30,15 @@ export default class WebMatrixParticleSystem implements ParticleSystem {
       for (let i = 0; i < this.numParticles; ++i) {
         this.addParticle();
       }
+
+      //Start in center screen
+      this.mouseParticle.x = this.width / 2;
+      this.mouseParticle.y = this.height / 2;
+
       this.test = false;
     }
 
+    //Move Particles
     for (let i = 0; i < this.particles.length; ++i) {
       let particle = this.particles[i];
       particle.pos.x += particle.velocity.x * deltaTime;
@@ -49,28 +58,41 @@ export default class WebMatrixParticleSystem implements ParticleSystem {
   }
 
   public draw(ctx: CanvasRenderingContext2D): void {
-    let linkRadius = 100;
+    //Draw Mouse particle
+    this.drawParticle(this.mouseParticle, this.minParticleRadius, ctx);
+
+    let mouseRadius = 200;
+    let linkRadius = 150;
 
     for (let i = 0; i < this.particles.length; ++i) {
-      this.drawParticle(i, ctx);
+      let p = this.particles[i];
+      this.drawParticle(p.pos, p.radius, ctx);
+
+      //Link points to mouse particle
+      let mouseOpacity = Math.min(
+        1 - Vector.Distance(p.pos, this.mouseParticle) / linkRadius,
+        this.maxOpacity
+      );
+      if (mouseOpacity > 0) {
+        this.drawLine(ctx, p.pos, this.mouseParticle, mouseOpacity);
+      }
+
+      let mouseDistance = Vector.Distance(p.pos, this.mouseParticle);
 
       //Link points
       for (let j = i + 1; j < this.particles.length; ++j) {
+        let p2 = this.particles[j];
+
         //Get Distance between both points
-        let distance = Vector.Distance(
-          this.particles[i].pos,
-          this.particles[j].pos
+        let distance = Vector.Distance(p.pos, p2.pos);
+        let opacity = Math.min(
+          1 - distance / linkRadius + (1 - mouseDistance / mouseRadius),
+          this.maxOpacity
         );
-        let opacity = Math.min(1 - distance / linkRadius, this.maxOpacity);
 
         if (opacity > 0) {
           //Draw line between points
-          this.drawLine(
-            ctx,
-            this.particles[i].pos,
-            this.particles[j].pos,
-            opacity
-          );
+          this.drawLine(ctx, p.pos, p2.pos, opacity);
         }
       }
     }
@@ -93,6 +115,11 @@ export default class WebMatrixParticleSystem implements ParticleSystem {
     }
   }
 
+  public setMouseCoords(mouseX: number, mouseY: number): void {
+    this.mouseParticle.x = mouseX;
+    this.mouseParticle.y = mouseY;
+  }
+
   private addParticle() {
     let pos = this.getRandomPoint();
 
@@ -100,7 +127,7 @@ export default class WebMatrixParticleSystem implements ParticleSystem {
       pos: new Vector(pos.x, pos.y),
       velocity: new Vector(),
       direction: new Vector(getRandomFloat(-1, 1), getRandomFloat(-1, 1)),
-      radius: getRandomInt(this.maxParticleRadius),
+      radius: getRandomFloat(this.minParticleRadius, this.maxParticleRadius),
       speed: getRandomFloat(this.minParticleSpeed, this.maxParticleSpeed),
     };
 
@@ -111,11 +138,14 @@ export default class WebMatrixParticleSystem implements ParticleSystem {
     this.particles.push(p);
   }
 
-  private drawParticle(index: number, ctx: CanvasRenderingContext2D) {
-    let p = this.particles[index];
+  private drawParticle(
+    pos: Vector,
+    radius: number,
+    ctx: CanvasRenderingContext2D
+  ) {
     ctx.fillStyle = `rgba(0, 0, 0, ${this.maxOpacity})`;
     ctx.beginPath();
-    ctx.arc(p.pos.x, p.pos.y, p.radius, 0, 2 * Math.PI);
+    ctx.arc(pos.x, pos.y, radius, 0, 2 * Math.PI);
     ctx.fill();
   }
 

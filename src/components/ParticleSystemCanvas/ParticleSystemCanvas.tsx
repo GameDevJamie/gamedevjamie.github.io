@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Canvas from 'components/ui/display/Canvas';
 import ParticleSystem from 'shared/classes/particleSystems/ParticleSystem';
+import { Vector } from 'utils/math';
 
 type Props = {
   particleSystem: ParticleSystem;
@@ -17,11 +18,22 @@ const ParticleSystemCanvas = ({ particleSystem, className }: Props) => {
     particleSystem.draw(ctx);
   };
 
+  const onMouseMove = (mouseX: number, mouseY: number) => {
+    particleSystem.setMouseCoords(mouseX, mouseY);
+  };
+
   const onResize = (ctx: CanvasRenderingContext2D) => {
     particleSystem.onResize(ctx);
   };
 
-  return <Canvas draw={draw} onResize={onResize} className={className} />;
+  return (
+    <Canvas
+      draw={draw}
+      onResize={onResize}
+      onMouseMove={onMouseMove}
+      className={className}
+    />
+  );
 };
 
 export default ParticleSystemCanvas;

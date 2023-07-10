@@ -5,7 +5,9 @@ import WebMatrixParticleSystem from 'shared/classes/particleSystems/WebMatrixPar
 
 export default () => {
   return (
-    <Home />
+    <>
+      <Home />
+    </>
     /*<>
     
       <Icon icon={IconType.Twitter} />
