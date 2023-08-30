@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import classNames from 'classnames';
-import Icon, { IconType } from 'components/ui/display/Icon';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import classNames from "classnames";
+import Icon, { IconType } from "components/ui/display/Icon";
 
 type Props = {
   onToggle?: (isOn: boolean) => void;
-  //leftIcon: IconType;
-  //rightIcon: IconType;
+  leftIcon: IconType;
+  rightIcon: IconType;
 };
 
-const Switch = ({ onToggle }: Props) => {
+const Switch = ({ onToggle, leftIcon, rightIcon }: Props) => {
   const [isOn, setIsOn] = useState(false);
   const toggleSwitch = () => {
     onToggle && onToggle(!isOn);
@@ -17,19 +17,34 @@ const Switch = ({ onToggle }: Props) => {
   };
 
   const handleClasses = classNames(
-    'w-10 h-10 relative rounded-full transition duration-500 transform p-1 text-white',
+    "w-8 h-8 rounded-full transition duration-300 transform p-1 text-white bg-primary absolute",
     {
-      'bg-yellow-500 -translate-x-2': !isOn,
-      'bg-gray-700 translate-x-full': isOn,
+      "-translate-x-0": !isOn,
+      "translate-x-full": isOn,
     }
   );
 
+  const leftIconClasses = classNames("transition-all ease-in", {
+    "text-contrast-primary": !isOn,
+  });
+  const rightIconClasses = classNames("transition-all ease-in", {
+    "text-contrast-primary": isOn,
+  });
+
   return (
     <button
-      className="w-16 h-8 rounded-full bg-slate-300 flex items-center transition duration-300 focus:outline-none shadow"
+      className="w-16 h-8 rounded-full bg-stone-50 flex items-center transition duration-300 focus:outline-none shadow text-xs relative"
       onClick={toggleSwitch}
     >
       <div className={handleClasses}></div>
+      <div className="z-10 flex flex-row justify-around w-full">
+        <span className={leftIconClasses}>
+          <Icon icon={leftIcon} />
+        </span>
+        <span className={rightIconClasses}>
+          <Icon icon={rightIcon} />
+        </span>
+      </div>
     </button>
   );
 };
@@ -71,7 +86,7 @@ const Switch = ({ onToggle, leftIcon, rightIcon }: Props) => {
 */
 
 const spring = {
-  type: 'spring',
+  type: "spring",
   stiffness: 400,
   damping: 30,
 };

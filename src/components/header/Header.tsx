@@ -1,14 +1,15 @@
-import React from 'react';
-import Icon, { IconType } from 'components/ui/display/Icon';
-import Switch from 'components/ui/input/switch';
+import React from "react";
+import Icon, { IconType } from "components/ui/display/Icon";
+import Switch from "components/ui/input/switch";
+import Navbar from "./Navbar";
 
 const Brand = () => {
   return (
-    <div className="flex justify-center items-center text-sm md:text-lg">
+    <div className="flex justify-center items-center text-sm md:text-lg cursor-pointer">
       <span className="mr-2">
-        <Icon icon={IconType.Code} />
+        <Icon icon={IconType.Code} color="primary" />
       </span>
-      <h3>Jamie Tumalty</h3>
+      <h3 className="font-semibold">Jamie Tumalty</h3>
     </div>
   );
 };
@@ -18,7 +19,7 @@ const Header = () => {
     <header className="flex justify-between items-center mx-auto max-w-screen-lg pt-3 pb-3">
       <Brand />
       <Navbar />
-      <Switch />
+      <Switch leftIcon={IconType.Sun} rightIcon={IconType.Moon} />
     </header>
   );
 };
