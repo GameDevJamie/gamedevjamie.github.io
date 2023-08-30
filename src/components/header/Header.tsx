@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 
 const Brand = () => {
   return (
-    <div className="flex justify-center items-center text-sm md:text-lg cursor-pointer">
+    <div className="flex justify-start items-center text-sm md:text-lg cursor-pointer ml-2 md:ml-0">
       <span className="mr-2">
         <Icon icon={IconType.Code} color="primary" />
       </span>
@@ -16,10 +16,12 @@ const Brand = () => {
 
 const Header = () => {
   return (
-    <header className="flex justify-between items-center mx-auto max-w-screen-lg pt-3 pb-3">
+    <header className="mx-auto max-w-screen-lg pt-3 pb-3 grid grid-cols-2 md:grid-cols-header fixed w-full left-1/2 -translate-x-1/2 z-50">
       <Brand />
       <Navbar />
-      <Switch leftIcon={IconType.Sun} rightIcon={IconType.Moon} />
+      <div className="flex justify-end items-center mr-2 md:mr-0">
+        <Switch leftIcon={IconType.Sun} rightIcon={IconType.Moon} />
+      </div>
     </header>
   );
 };

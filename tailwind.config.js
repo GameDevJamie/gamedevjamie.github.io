@@ -11,6 +11,11 @@ module.exports = {
         rubik: ["Rubik", "sans-serif"],
       },
 
+      gridTemplateColumns: {
+        //For header only
+        header: "1fr auto 1fr",
+      },
+
       colors: {
         primary: {
           DEFAULT: "#7611a6", //'#8b5cf6',
