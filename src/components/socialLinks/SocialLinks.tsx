@@ -1,5 +1,5 @@
 import React from 'react';
-import IconButton from 'components/ui/input/IconButton';
+import IconButton from 'components/ui/input/button/IconButton';
 import Icon, { IconType } from 'components/ui/display/Icon';
 
 type LinkDef = {

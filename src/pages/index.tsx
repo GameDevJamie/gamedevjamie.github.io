@@ -1,12 +1,10 @@
 import * as React from 'react';
-import Home from 'sections/home';
-import ParticleSystemCanvas from 'components/ParticleSystemCanvas';
-import WebMatrixParticleSystem from 'shared/classes/particleSystems/WebMatrixParticleSystem';
+import Header from 'components/header';
 
 export default () => {
   return (
     <>
-      <Home />
+      <Header />
     </>
     /*<>
     
