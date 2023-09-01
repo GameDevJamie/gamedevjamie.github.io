@@ -1,23 +1,20 @@
-import classNames from 'classnames';
-import React from 'react';
+import classNames from "classnames";
+import React from "react";
 
 type Props = {
-  fullHeight?: boolean;
-  centerContent?: boolean;
+  as?: "div" | "header";
+  className?: string;
   children: React.ReactNode;
 };
 
-const Container = ({
-  fullHeight = false,
-  centerContent = false,
-  children,
-}: Props) => {
-  var classes = classNames('container max-w-screen-lg mx-auto px-5', {
-    'h-screen': fullHeight,
-    'flex justify-center items-center': centerContent,
+const Container = ({ as = "div", className, children }: Props) => {
+  const As = as;
+  var classes = classNames("container max-w-screen-xl mx-auto", className, {
+    //"h-screen": fullHeight,
+    //"flex justify-center items-center": centerContent,
   });
 
-  return <div className={classes}>{children}</div>;
+  return <As className={classes}>{children}</As>;
 };
 
 export default Container;

@@ -6,7 +6,6 @@ export default () => {
   return (
     <>
       <Header />
-      <Home />
     </>
   );
 };

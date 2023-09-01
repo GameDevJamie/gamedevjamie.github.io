@@ -2,6 +2,7 @@ import React from "react";
 import Icon, { IconType } from "components/ui/display/Icon";
 import Switch from "components/ui/input/switch";
 import Navbar from "./Navbar";
+import Container from "components/ui/layout/Container";
 
 const Brand = () => {
   return (
@@ -14,14 +15,18 @@ const Brand = () => {
   );
 };
 
+//Todo: On scroll, fade in background color
+
 const Header = () => {
   return (
-    <header className="mx-auto max-w-screen-lg pt-3 pb-3 grid grid-cols-2 md:grid-cols-header fixed w-full left-1/2 -translate-x-1/2 z-50">
-      <Brand />
-      <Navbar />
-      <div className="flex justify-end items-center mr-2 md:mr-0">
-        <Switch leftIcon={IconType.Sun} rightIcon={IconType.Moon} />
-      </div>
+    <header className="w-full shadow-md fixed left-1/2 -translate-x-1/2 z-50">
+      <Container className="py-6 grid grid-cols-2 md:grid-cols-header">
+        <Brand />
+        <Navbar />
+        <div className="flex justify-end items-center mr-2 md:mr-0">
+          <Switch leftIcon={IconType.Sun} rightIcon={IconType.Moon} />
+        </div>
+      </Container>
     </header>
   );
 };
