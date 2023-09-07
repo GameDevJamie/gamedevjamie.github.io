@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import classNames from "classnames";
+import Icon, { IconType } from "components/ui/display/Icon";
 
 type NavItemProps = {
   name: string;
@@ -25,7 +26,8 @@ const NavItem = ({ name, xPos, active, onClick }: NavItemProps) => {
         onClick(name, xPos);
       }}
     >
-      {name}
+      <Icon icon={IconType.Code} />
+      <span className="ml-2">{name}</span>
     </li>
   );
 };
@@ -63,14 +65,20 @@ const NavList = () => {
         onClick={switchNavItem}
       />
       <NavItem
-        name="Projects"
+        name="Skills"
         xPos={xOffset}
+        onClick={switchNavItem}
+        active={activeNavItem == "Skills"}
+      />
+      <NavItem
+        name="Projects"
+        xPos={xOffset * 2}
         onClick={switchNavItem}
         active={activeNavItem == "Projects"}
       />
       <NavItem
         name="CV"
-        xPos={xOffset * 2}
+        xPos={xOffset * 3}
         onClick={switchNavItem}
         active={activeNavItem == "CV"}
       />
@@ -79,8 +87,28 @@ const NavList = () => {
 };
 
 const Navbar = () => {
+  const [scroll, setScroll] = useState(false);
+
+  const handleOnScroll = () => {
+    setScroll(window.scrollY > 50);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleOnScroll);
+    return () => {
+      window.removeEventListener("scroll", handleOnScroll);
+    };
+  }, []);
+
+  const classes = classNames(
+    "rounded-full text-base font-normal transition-all duration-100 ease-in",
+    {
+      "bg-gray-400 shadow-md": scroll,
+    }
+  );
+
   return (
-    <nav className="bg-stone-50 rounded-full text-base shadow-md font-normal absolute md:relative left-1/2 md:left-0 -translate-x-1/2 md:translate-x-0 top-14 md:top-0 ">
+    <nav className={classes}>
       <NavList />
     </nav>
   );

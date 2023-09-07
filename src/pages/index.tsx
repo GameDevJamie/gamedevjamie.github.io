@@ -1,11 +1,11 @@
 import * as React from "react";
-import Header from "components/header";
+import Layout from "components/Layout";
 import Home from "sections/home";
 
 export default () => {
   return (
-    <>
-      <Header />
-    </>
+    <Layout>
+      <Home />
+    </Layout>
   );
 };

@@ -15,17 +15,11 @@ const Brand = () => {
   );
 };
 
-//Todo: On scroll, fade in background color
-
 const Header = () => {
   return (
-    <header className="w-full shadow-md fixed left-1/2 -translate-x-1/2 z-50">
-      <Container className="py-6 grid grid-cols-2 md:grid-cols-header">
-        <Brand />
+    <header className="fixed left-1/2 -translate-x-1/2 z-50 top-0">
+      <Container className="py-6">
         <Navbar />
-        <div className="flex justify-end items-center mr-2 md:mr-0">
-          <Switch leftIcon={IconType.Sun} rightIcon={IconType.Moon} />
-        </div>
       </Container>
     </header>
   );

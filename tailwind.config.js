@@ -18,9 +18,9 @@ module.exports = {
 
       colors: {
         primary: {
-          DEFAULT: "#7611a6", //'#8b5cf6',
-          light: "#a12bd9", //"#C4B6FD",
-          dark: "#4c076e", //"#4C1D95",
+          DEFAULT: "#ff4d5a", //"#7611a6", //'#8b5cf6',
+          light: "#fa707a", //"#a12bd9", //"#C4B6FD",
+          dark: "#bd222d", //"#4c076e", //"#4C1D95",
         },
         social: {
           twitter: "#1DA1F2",

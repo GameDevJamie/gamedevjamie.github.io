@@ -2,7 +2,7 @@ import classNames from "classnames";
 import React from "react";
 
 type Props = {
-  as?: "div" | "header";
+  as?: "div" | "header" | "section";
   className?: string;
   children: React.ReactNode;
 };

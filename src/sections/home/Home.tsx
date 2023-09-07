@@ -1,9 +1,23 @@
-import React, { useState } from 'react';
-import SocialLinks from 'components/socialLinks';
-import Icon, { IconType } from 'components/ui/display/Icon';
-import ParticleSystemCanvas from 'components/ParticleSystemCanvas';
-import WebMatrixParticleSystem from 'shared/classes/particleSystems/WebMatrixParticleSystem';
+import React, { useState } from "react";
+import Container from "components/ui/layout/Container";
+import SocialLinks from "components/socialLinks";
+import Icon, { IconType } from "components/ui/display/Icon";
+import ParticleSystemCanvas from "components/ParticleSystemCanvas";
+import WebMatrixParticleSystem from "shared/classes/particleSystems/WebMatrixParticleSystem";
 
+const Home = () => {
+  return (
+    <Container as="section" className="h-screen">
+      <div className="flex flex-col md:flex-row h-full">
+        <div>About</div>
+        <div>Video</div>
+      </div>
+      <div>Skills</div>
+    </Container>
+  );
+};
+
+/*
 const Home = () => {
   const [particleSystem] = useState(new WebMatrixParticleSystem(100));
 
@@ -35,5 +49,6 @@ const Home = () => {
     </div>
   );
 };
+*/
 
 export default Home;
