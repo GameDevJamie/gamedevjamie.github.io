@@ -5,7 +5,7 @@ import Home from "sections/home";
 export default () => {
   return (
     <Layout>
-      <Home />
+      <></>
     </Layout>
   );
 };

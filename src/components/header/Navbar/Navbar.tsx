@@ -5,29 +5,18 @@ import Icon, { IconType } from "components/ui/display/Icon";
 
 type NavItemProps = {
   name: string;
-  xPos: number;
-  active: boolean;
-  onClick: (name: string, x: number) => void;
+  icon: IconType;
 };
 
-const NavItem = ({ name, xPos, active, onClick }: NavItemProps) => {
+const NavItem = ({ name, icon }: NavItemProps) => {
   const classes = classNames(
-    "w-20 h-10 rounded-full cursor-pointer transition-colors ease-in flex flex-row justify-center items-center",
-    {
-      "text-contrast-primary": active,
-      "text-default hover:bg-primary-light/50": !active,
-    }
+    "p-2 mx-2 rounded-full cursor-pointer transition-colors ease-in flex flex-row justify-center items-center text-default bg-red-200"
   );
 
   return (
-    <li
-      className={classes}
-      onClick={() => {
-        onClick(name, xPos);
-      }}
-    >
-      <Icon icon={IconType.Code} />
-      <span className="ml-2">{name}</span>
+    <li className={classes}>
+      <Icon icon={icon} />
+      <span className="ml-1">{name}</span>
     </li>
   );
 };
@@ -43,6 +32,7 @@ const NavSwitch = ({ xPos }: { xPos: number }) => {
 };
 
 const NavList = () => {
+  /*
   const [activeXPos, setActiveXPos] = useState(0);
   const [activeNavItem, setActiveNavItem] = useState("Home");
 
@@ -53,40 +43,20 @@ const NavList = () => {
   const switchNavItem = (name: string, xPos: number) => {
     setActiveXPos(xPos);
     setActiveNavItem(name);
-  };
+  };*/
 
   return (
-    <ul className="py-1 px-2 marker:list-none flex flex-row gap-4 relative z-10">
-      <NavSwitch xPos={activeXPos} />
-      <NavItem
-        name="Home"
-        xPos={0}
-        active={activeNavItem == "Home"}
-        onClick={switchNavItem}
-      />
-      <NavItem
-        name="Skills"
-        xPos={xOffset}
-        onClick={switchNavItem}
-        active={activeNavItem == "Skills"}
-      />
-      <NavItem
-        name="Projects"
-        xPos={xOffset * 2}
-        onClick={switchNavItem}
-        active={activeNavItem == "Projects"}
-      />
-      <NavItem
-        name="CV"
-        xPos={xOffset * 3}
-        onClick={switchNavItem}
-        active={activeNavItem == "CV"}
-      />
+    <ul className="py-1 px-2 marker:list-none flex flex-row relative z-10">
+      <NavItem name="Home" icon={IconType.House} />
+      <NavItem name="About" icon={IconType.User} />
+      <NavItem name="Projects" icon={IconType.Code} />
+      <NavItem name="CV" icon={IconType.FileLines} />
     </ul>
   );
 };
 
 const Navbar = () => {
+  /*
   const [scroll, setScroll] = useState(false);
 
   const handleOnScroll = () => {
@@ -99,12 +69,9 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleOnScroll);
     };
   }, []);
-
+*/
   const classes = classNames(
-    "rounded-full text-base font-normal transition-all duration-100 ease-in",
-    {
-      "bg-gray-400 shadow-md": scroll,
-    }
+    "rounded-full text-sm font-normal transition-all duration-100 ease-in bg-gray-200 flex flex-row justify-centre"
   );
 
   return (
