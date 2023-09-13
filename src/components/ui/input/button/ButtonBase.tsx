@@ -1,5 +1,14 @@
-import React from 'react';
-import classNames from 'classnames';
+import React from "react";
+import classNames from "classnames";
+
+/*New 
+
+  variant: solid, outline
+  color: just primary by default, add more later if needed
+  size: all same for now
+  hoverAnimation: fade, swipe
+  
+*/
 
 type Props = {
   variant: variant;
@@ -12,46 +21,46 @@ type Props = {
 
 const buttonStyles = {
   solid: {
-    common: '',
-    inherit: '',
+    common: "",
+    inherit: "",
     primary:
-      'bg-primary text-contrast-primary border-primary hover:bg-primary-dark hover:border-primary-dark',
-    twitter: '',
-    linkedin: '',
-    github: '',
-    itchio: '',
+      "bg-primary text-contrast-primary border-primary hover:bg-primary-dark hover:border-primary-dark",
+    twitter: "",
+    linkedin: "",
+    github: "",
+    itchio: "",
   },
   outline: {
-    common: 'bg-transparent text-default shadow-md',
-    inherit: '',
-    primary: 'border-primary hover:bg-primary hover:text-contrast-primary',
+    common: "bg-transparent text-default shadow-md",
+    inherit: "",
+    primary: "border-primary hover:bg-primary hover:text-contrast-primary",
     twitter:
-      'border-social-twitter hover:bg-social-twitter hover:text-contrast-twitter',
+      "border-social-twitter hover:bg-social-twitter hover:text-contrast-twitter",
     linkedin:
-      'border-social-linkedin hover:bg-social-linkedin hover:text-contrast-linkedin',
+      "border-social-linkedin hover:bg-social-linkedin hover:text-contrast-linkedin",
     github:
-      'border-social-github hover:bg-social-github hover:text-contrast-github',
+      "border-social-github hover:bg-social-github hover:text-contrast-github",
     itchio:
-      'border-social-itchio hover:bg-social-itchio hover:text-contrast-itchio',
+      "border-social-itchio hover:bg-social-itchio hover:text-contrast-itchio",
   },
   ghost: {
     common:
-      'bg-trasnparent border-transparent text-default hover:bg-gray-400/25',
-    inherit: '',
-    primary: '',
-    twitter: '',
-    linkedin: '',
-    github: '',
-    itchio: '',
+      "bg-trasnparent border-transparent text-default hover:bg-gray-400/25",
+    inherit: "",
+    primary: "",
+    twitter: "",
+    linkedin: "",
+    github: "",
+    itchio: "",
   },
   neutral: {
-    common: 'bg text-default shadow-md',
-    inherit: '',
-    primary: '',
-    twitter: 'hover:bg-social-twitter hover:text-contrast-twitter',
-    linkedin: '',
-    github: '',
-    itchio: '',
+    common: "bg text-default shadow-md",
+    inherit: "",
+    primary: "",
+    twitter: "hover:bg-social-twitter hover:text-contrast-twitter",
+    linkedin: "",
+    github: "",
+    itchio: "",
   },
 };
 
@@ -64,8 +73,8 @@ const ButtonBase = ({
   children,
 }: Props) => {
   const classes = classNames(
-    'block cursor-pointer border-2 border-solid transition-all ease-in-out duration-150',
-    buttonStyles[variant]['common'],
+    "block cursor-pointer border-2 border-solid transition-all ease-in-out duration-150",
+    buttonStyles[variant]["common"],
     buttonStyles[variant][color],
     extraClassNames
   );

@@ -22,7 +22,7 @@ enum IconType {
 }
 
 const svgXMLNS = "http://www.w3.org/2000/svg";
-const defaultHeight = "1.25em";
+const defaultHeight = "1em";
 
 type IconData = {
   viewBox: string;

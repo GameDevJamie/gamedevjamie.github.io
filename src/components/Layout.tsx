@@ -9,8 +9,7 @@ type Props = {
 const Layout = ({ children }: Props) => {
   return (
     <>
-      <Header />
-      <main className="mt-10 md:mt-8">{children}</main>
+      <main>{children}</main>
     </>
   );
 };
