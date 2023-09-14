@@ -1,24 +1,35 @@
-import React from 'react';
-import ButtonBase from './ButtonBase';
-import classNames from 'classnames';
+import React from "react";
+import ButtonBase from "./ButtonBase";
+import classNames from "classnames";
+import Icon, { IconType } from "components/ui/display/Icon";
 
 type Props = {
   variant: variant;
   color: color;
-  size: size;
   onClick?: () => void;
   href?: string;
   text: string;
+
+  startIcon?: IconType;
+  endIcon?: IconType;
 };
 
-const sizeStyles = {
-  sm: 'px-2 py-1',
-  md: 'px-4 py-2',
-  lg: 'px-6 py-3',
-};
-
-const Button = ({ variant, color, size, onClick, href, text }: Props) => {
-  const classes = classNames(sizeStyles[size], 'rounded-md');
+const Button = ({
+  variant,
+  color,
+  onClick,
+  href,
+  text,
+  startIcon,
+  endIcon,
+}: Props) => {
+  const classes = classNames("px-4 py-2 md:px-6 md:py-3 rounded-full", {
+    "flex flex-row justify-center items-center": startIcon || endIcon,
+  });
+  const textClasses = classNames({
+    "ml-1 md:ml-2": startIcon,
+    "mr-1 md:mr-2": endIcon,
+  });
 
   return (
     <ButtonBase
@@ -28,7 +39,9 @@ const Button = ({ variant, color, size, onClick, href, text }: Props) => {
       onClick={onClick}
       href={href}
     >
-      {text}
+      {startIcon && <Icon icon={startIcon} />}
+      <span className={textClasses}>{text}</span>
+      {endIcon && <Icon icon={endIcon} />}
     </ButtonBase>
   );
 };

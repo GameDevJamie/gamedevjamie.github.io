@@ -1,8 +1,15 @@
-import React from 'react';
-import ButtonBase from './ButtonBase';
-import Icon, { IconType } from 'components/ui/display/Icon';
-import classNames from 'classnames';
+import React from "react";
+import ButtonBase from "./ButtonBase";
+import Icon, { IconType } from "components/ui/display/Icon";
+import classNames from "classnames";
 
+const IconButton = () => {
+  return <div>IconButton</div>;
+};
+
+export default IconButton;
+
+/*
 type Props = {
   variant: variant;
   color: color;
@@ -35,3 +42,4 @@ const IconButton = ({ variant, color, size, onClick, href, icon }: Props) => {
 };
 
 export default IconButton;
+*/

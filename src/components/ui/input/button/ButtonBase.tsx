@@ -15,52 +15,20 @@ type Props = {
   color: color;
   onClick?: () => void;
   href?: string;
-  extraClassNames?: string;
+  extraClassNames: string;
   children: React.ReactNode;
 };
 
 const buttonStyles = {
   solid: {
-    common: "",
-    inherit: "",
+    inherit: "bg-inherit text-white",
     primary:
       "bg-primary text-contrast-primary border-primary hover:bg-primary-dark hover:border-primary-dark",
-    twitter: "",
-    linkedin: "",
-    github: "",
-    itchio: "",
   },
   outline: {
-    common: "bg-transparent text-default shadow-md",
-    inherit: "",
-    primary: "border-primary hover:bg-primary hover:text-contrast-primary",
-    twitter:
-      "border-social-twitter hover:bg-social-twitter hover:text-contrast-twitter",
-    linkedin:
-      "border-social-linkedin hover:bg-social-linkedin hover:text-contrast-linkedin",
-    github:
-      "border-social-github hover:bg-social-github hover:text-contrast-github",
-    itchio:
-      "border-social-itchio hover:bg-social-itchio hover:text-contrast-itchio",
-  },
-  ghost: {
-    common:
-      "bg-trasnparent border-transparent text-default hover:bg-gray-400/25",
-    inherit: "",
-    primary: "",
-    twitter: "",
-    linkedin: "",
-    github: "",
-    itchio: "",
-  },
-  neutral: {
-    common: "bg text-default shadow-md",
-    inherit: "",
-    primary: "",
-    twitter: "hover:bg-social-twitter hover:text-contrast-twitter",
-    linkedin: "",
-    github: "",
-    itchio: "",
+    inherit: "border-inherit bg-transparent text-default",
+    primary:
+      "bg-transparent text-default border-primary hover:text-contrast-primary shadow-innerOff hover:shadow-innerOn",
   },
 };
 
@@ -73,8 +41,7 @@ const ButtonBase = ({
   children,
 }: Props) => {
   const classes = classNames(
-    "block cursor-pointer border-2 border-solid transition-all ease-in-out duration-150",
-    buttonStyles[variant]["common"],
+    "relative text-base block cursor-pointer border border-solid transition-all ease-out duration-200",
     buttonStyles[variant][color],
     extraClassNames
   );

@@ -24,6 +24,11 @@ module.exports = {
         header: "1fr auto 1fr",
       },
 
+      boxShadow: {
+        innerOn: "inset 100px 0 0 0 #7611a6;",
+        innerOff: "inset 0 0 0 0 #7811a6;",
+      },
+
       colors: {
         primary: {
           DEFAULT: "#7611a6", //"#ff4d5a", //"#7611a6", //'#8b5cf6',
