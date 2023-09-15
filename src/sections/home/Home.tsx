@@ -45,7 +45,13 @@ const Home = () => {
 
       <div className="flex flex-col md:flex-row justify-center items-start gap-5 w-full mt-10">
         <SkillBox
-          icons={[IconType.HTML, IconType.React, IconType.Gatsby]}
+          icons={[
+            //IconType.CPlusPlus,
+            //IconType.CSharp,
+            //IconType.Unity,
+            //IconType.OpenGL,
+            IconType.HTML,
+          ]}
           title="Game Development"
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -53,12 +59,21 @@ const Home = () => {
           aliquip ex ea commodo consequat."
         />
         <SkillBox
-          icons={[IconType.HTML, IconType.React, IconType.Gatsby]}
+          icons={[
+            IconType.HTML,
+            //IconType.CSS,
+            //IconType.JavaScript,
+            //IconType.TypeScript,
+            //IconType.React,
+            //IconType.Gatsby,
+            //IconType.Tailwind,
+            //IconType.Wordpress,
+          ]}
           title="Web Development"
           description="HTML, CSS, Javascript, TypeScript, react, gatsby, tailwind"
         />
         <SkillBox
-          icons={[IconType.HTML, IconType.React, IconType.Gatsby]}
+          icons={[IconType.HTML]} //IconType.VSCode, IconType.VisualStudio, IconType.Git]}
           title="Software/Tools"
           description="Git, vs code, visual studio"
         />

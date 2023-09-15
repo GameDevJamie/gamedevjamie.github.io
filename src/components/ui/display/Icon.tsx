@@ -6,16 +6,30 @@ enum IconType {
   Github = "Github",
   LinkedIn = "LinkedIn",
   ItchIo = "ItchIo",
-  Code = "Code",
 
   HTML = "HTML",
+  CSS = "CSS",
+  JavaScript = "JavaScript",
+  TypeScript = "TypeScript",
   React = "React",
   Gatsby = "Gatsby",
   Tailwind = "Tailwind",
+  Wordpress = "Wordpress",
+
+  CPlusPlus = "C++",
+  CSharp = "C#",
+  Unity = "Unity",
+  OpenGL = "OpenGL",
+  Direct3D = "Direct3D",
+
+  VSCode = "VSCode",
+  VisualStudio = "VisualStudio",
+  Git = "Git",
 
   House = "House",
   User = "User",
   FileLines = "FileLines",
+  Code = "Code",
 
   ArrowDown = "ArrowDown",
 
@@ -114,6 +128,15 @@ function getIcon(icon: IconType, defaultColor: boolean): IconData {
         ),
       };
 
+    case IconType.CSS:
+      return { viewBox: "", path: <path /> };
+
+    case IconType.JavaScript:
+      return { viewBox: "", path: <path /> };
+
+    case IconType.TypeScript:
+      return { viewBox: "", path: <path /> };
+
     case IconType.React:
       return {
         viewBox: "0 0 128 128",
@@ -146,6 +169,33 @@ function getIcon(icon: IconType, defaultColor: boolean): IconData {
           ></path>
         ),
       };
+
+    case IconType.Wordpress:
+      return { viewBox: "", path: <path /> };
+
+    case IconType.CPlusPlus:
+      return { viewBox: "", path: <path /> };
+
+    case IconType.CSharp:
+      return { viewBox: "", path: <path /> };
+
+    case IconType.Unity:
+      return { viewBox: "", path: <path /> };
+
+    case IconType.OpenGL:
+      return { viewBox: "", path: <path /> };
+
+    case IconType.Direct3D:
+      return { viewBox: "", path: <path /> };
+
+    case IconType.VSCode:
+      return { viewBox: "", path: <path /> };
+
+    case IconType.VisualStudio:
+      return { viewBox: "", path: <path /> };
+
+    case IconType.Git:
+      return { viewBox: "", path: <path /> };
 
     case IconType.House:
       return {
