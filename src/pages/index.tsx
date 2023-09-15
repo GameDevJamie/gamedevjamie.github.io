@@ -1,35 +1,22 @@
 import * as React from "react";
 import Layout from "components/Layout";
-import Hero from "components/hero";
-import Button from "components/ui/input/button/Button";
+import Home from "sections/home";
+import Container from "components/ui/layout/Container";
+import SkillBox from "components/skillBox";
 import { IconType } from "components/ui/display/Icon";
+
+/*FOR SKILLS
+  THREE BOXES BELOW EACH SHOWING A CATEGORY OF SKILLS:
+
+  GAME DEVELOPMENT: C++, C#, UNITY, OpenGL, DirectX
+  WEB DEVELOPMENT: REACT, GATSBY, HTML, CSS, WORDPRESS
+  SOFTWARE/TOOLS: VS Code, Visual Studio, SQL
+*/
 
 export default () => {
   return (
     <Layout>
-      <Hero
-        heading1="Hi, I'm Jamie"
-        heading2="A Software Developer"
-        subHeading="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat."
-        videoSrc=""
-        buttons={[
-          {
-            text: "View Projects",
-            variant: "solid",
-            icon: IconType.ArrowDown,
-            isRightIcon: true,
-          },
-          {
-            text: "CV",
-            icon: IconType.FileLines,
-            variant: "outline",
-            isRightIcon: false,
-          },
-        ]}
-      />
+      <Home />
     </Layout>
   );
 };

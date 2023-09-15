@@ -57,7 +57,7 @@ const Hero = ({ heading1, heading2, subHeading, videoSrc, buttons }: Props) => {
   });
 
   return (
-    <div className="flex flex-col md:flex-row justify-between items-center w-full h-[90vh] m-auto max-w-screen-xl">
+    <div className="flex flex-col md:flex-row justify-between items-center w-full">
       <div className="text-center max-w-xl selection:bg-primary-light/30 selection:text-white">
         <div className="text-2xl font-bold">
           <h2>{heading1}</h2>

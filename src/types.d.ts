@@ -4,6 +4,6 @@ type color = "inherit" | "primary";
 //| 'linkedin'
 //| 'itchio';
 
-type variant = "solid" | "outline"; // | 'ghost' | 'neutral';
+type variant = "solid" | "outline" | "elevate"; // | 'ghost' | 'neutral';
 type size = "sm" | "md" | "lg";
 type fontSize = "inherit" | "sm" | "md" | "lg";

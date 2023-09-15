@@ -227,10 +227,6 @@ type Props = {
 const colorStyles = {
   inherit: "text-inherit",
   primary: "text-primary",
-  twitter: "text-twitter",
-  linkedin: "text-linkedin",
-  github: "text-github",
-  itchio: "text-itchio",
 };
 const sizeStyles = {
   inherit: "",

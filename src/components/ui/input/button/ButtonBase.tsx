@@ -23,12 +23,17 @@ const buttonStyles = {
   solid: {
     inherit: "bg-inherit text-white",
     primary:
-      "bg-primary text-contrast-primary border-primary hover:bg-primary-dark hover:border-primary-dark",
+      "bg-primary text-contrast-primary border-primary hover:border-primary-light hover:bg-primary-light hover:shadow-elevate",
   },
   outline: {
     inherit: "border-inherit bg-transparent text-default",
     primary:
-      "bg-transparent text-default border-primary hover:text-contrast-primary shadow-innerOff hover:shadow-innerOn",
+      "bg-transparent text-primary border-primary hover:bg-primary hover:text-contrast-primary",
+  },
+  elevate: {
+    inherit: "",
+    primary:
+      "bg-transparent text-primary border-0 hover:bg-opacity-10 hover:bg-primary shadow-elevate",
   },
 };
 

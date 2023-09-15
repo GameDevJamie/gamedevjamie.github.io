@@ -23,7 +23,7 @@ const Button = ({
   startIcon,
   endIcon,
 }: Props) => {
-  const classes = classNames("px-4 py-2 md:px-6 md:py-3 rounded-full", {
+  const classes = classNames("px-4 py-2 md:px-6 md:py-2 rounded-full", {
     "flex flex-row justify-center items-center": startIcon || endIcon,
   });
   const textClasses = classNames({

@@ -25,15 +25,15 @@ module.exports = {
       },
 
       boxShadow: {
-        innerOn: "inset 100px 0 0 0 #7611a6;",
-        innerOff: "inset 0 0 0 0 #7811a6;",
+        elevate:
+          "0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.3)",
       },
 
       colors: {
         primary: {
-          DEFAULT: "#7611a6", //"#ff4d5a", //"#7611a6", //'#8b5cf6',
-          light: "#a12bd9", //"#fa707a", //"#a12bd9", //"#C4B6FD",
-          dark: "#4c076e", //"#bd222d", //"#4c076e", //"#4C1D95",
+          DEFAULT: "#6750a4", //"#ff4d5a", //"#7611a6", //'#8b5cf6',
+          light: "#987fdb", //"#fa707a", //"#a12bd9", //"#C4B6FD",
+          dark: "#3c2a6b", //"#bd222d", //"#4c076e", //"#4C1D95",
         },
         social: {
           twitter: "#1DA1F2",
