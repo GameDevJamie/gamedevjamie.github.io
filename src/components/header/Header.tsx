@@ -1,8 +1,9 @@
-import React from 'react';
-import Icon, { IconType } from 'components/ui/display/Icon';
-import Switch from 'components/ui/input/switch';
-import Navbar from './Navbar';
-import Container from 'components/ui/layout/Container';
+import React from "react";
+import Icon, { IconType } from "components/ui/display/Icon";
+import Switch from "components/ui/input/switch";
+import Navbar from "./Navbar";
+import Container from "components/ui/layout/Container";
+import Hamburger from "components/hamburger";
 
 const Brand = () => {
   return (
@@ -17,13 +18,18 @@ const Brand = () => {
 
 const Header = () => {
   return (
-    <header className="fixed w-full bg-white shadow-md">
+    <header className="fixed w-full bg-white shadow-md p-1 z-50 top-0">
       <Container className="flex flex-row justify-between">
         <Brand />
-        <div className="m-auto">
+        <Hamburger />
+        {/*<div className="m-auto flex flex-col absolute hidden justify-between items-center">
           <Navbar />
-          {/*Switch and Social Icons */}
-        </div>
+          <Switch
+            onToggle={() => {}}
+            leftIcon={IconType.Sun}
+            rightIcon={IconType.Moon}
+          />
+        </div>*/}
       </Container>
     </header>
   );

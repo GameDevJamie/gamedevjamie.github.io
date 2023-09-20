@@ -9,10 +9,14 @@ type Props = {
 
 const Container = ({ as = "div", className, children }: Props) => {
   const As = as;
-  var classes = classNames("container max-w-screen-xl mx-auto", className, {
-    //"h-screen": fullHeight,
-    //"flex justify-center items-center": centerContent,
-  });
+  var classes = classNames(
+    "container max-w-screen-xl mx-auto px-2",
+    className,
+    {
+      //"h-screen": fullHeight,
+      //"flex justify-center items-center": centerContent,
+    }
+  );
 
   return <As className={classes}>{children}</As>;
 };

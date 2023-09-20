@@ -15,7 +15,7 @@ type Props = {
   color: color;
   onClick?: () => void;
   href?: string;
-  extraClassNames: string;
+  className: string;
   children: React.ReactNode;
 };
 
@@ -42,13 +42,13 @@ const ButtonBase = ({
   color,
   onClick,
   href,
-  extraClassNames,
+  className,
   children,
 }: Props) => {
   const classes = classNames(
     "relative text-base block cursor-pointer border border-solid transition-all ease-out duration-200",
     buttonStyles[variant][color],
-    extraClassNames
+    className
   );
 
   if (href) {

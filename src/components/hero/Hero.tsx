@@ -1,8 +1,8 @@
-import React, { ReactElement } from 'react';
-import Button from 'components/ui/input/button/Button';
-import Stack from 'components/ui/layout/Stack';
-import Icon, { IconType } from 'components/ui/display/Icon';
-import classNames from 'classnames';
+import React, { ReactElement } from "react";
+import Button from "components/ui/input/button/Button";
+import Stack from "components/ui/layout/Stack";
+import Icon, { IconType } from "components/ui/display/Icon";
+import classNames from "classnames";
 
 {
   /*Place in Footer

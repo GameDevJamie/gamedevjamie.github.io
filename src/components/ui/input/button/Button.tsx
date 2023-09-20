@@ -35,7 +35,7 @@ const Button = ({
     <ButtonBase
       variant={variant}
       color={color}
-      extraClassNames={classes}
+      className={classes}
       onClick={onClick}
       href={href}
     >
