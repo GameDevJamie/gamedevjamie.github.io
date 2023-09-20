@@ -1,8 +1,8 @@
-import React, { ReactElement } from "react";
-import Button from "components/ui/input/button/Button";
-import Stack from "components/ui/layout/Stack";
-import Icon, { IconType } from "components/ui/display/Icon";
-import classNames from "classnames";
+import React, { ReactElement } from 'react';
+import Button from 'components/ui/input/button/Button';
+import Stack from 'components/ui/layout/Stack';
+import Icon, { IconType } from 'components/ui/display/Icon';
+import classNames from 'classnames';
 
 {
   /*Place in Footer
@@ -23,27 +23,6 @@ type Props = {
 };
 
 const Hero = ({ heading1, heading2, subHeading, videoSrc, buttons }: Props) => {
-  /*const buttonMap = buttons.map((b) => {
-    const classes = classNames(
-      "rounded-full text-base px-6 py-3 flex flex-row justify-center items-center shadow-2xl",
-      {
-        "border-primary border text-primary transition-all ease-in duration-100 hover:bg-primary hover:text-contrast-primary":
-          b.variant == "outline",
-
-        "text-contrast-primary bg-primary": b.variant == "solid",
-      }
-    );
-    return (
-      <button className={classes}>
-        {!b.isRightIcon && <Icon icon={b.icon} />}
-        <span className={b.isRightIcon ? "mr-1 md:mr-2" : "ml-1 md:ml-2"}>
-          {b.text}
-        </span>
-        {b.isRightIcon && <Icon icon={b.icon} />}
-      </button>
-    );
-  });*/
-
   const buttonMap = buttons.map((b) => {
     return (
       <Button

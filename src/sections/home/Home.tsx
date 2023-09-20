@@ -43,10 +43,7 @@ const Home = () => {
             },
           ]}
         />
-      </Container>
-
-      <Container as="section">
-        <div className="flex flex-col md:flex-row justify-center items-start gap-5 w-full mt-10">
+        <div className="flex flex-col md:flex-row justify-center items-start gap-5 w-full mt-auto mb-3">
           <SkillBox
             icons={[
               IconType.CPlusPlus,
