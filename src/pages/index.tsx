@@ -7,7 +7,6 @@ export default () => {
   return (
     <Layout>
       <Home />
-      <Skills />
     </Layout>
   );
 };
