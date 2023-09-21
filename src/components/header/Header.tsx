@@ -18,19 +18,8 @@ const Brand = () => {
 
 const Header = () => {
   return (
-    <header className="fixed w-full bg-white shadow-md p-1 z-50 top-0">
-      <Container className="flex flex-row justify-between">
-        <Brand />
-        <Hamburger />
-        {/*<div className="m-auto flex flex-col absolute hidden justify-between items-center">
-          <Navbar />
-          <Switch
-            onToggle={() => {}}
-            leftIcon={IconType.Sun}
-            rightIcon={IconType.Moon}
-          />
-        </div>*/}
-      </Container>
+    <header className="fixed w-full p-4 z-50 top-0 flex justify-center items-center">
+      <Navbar />
     </header>
   );
 };
