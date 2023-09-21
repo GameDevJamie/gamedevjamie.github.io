@@ -23,17 +23,15 @@ const buttonStyles = {
   solid: {
     inherit: "bg-inherit text-white",
     primary:
-      "bg-primary text-contrast-primary border-primary hover:border-primary-light hover:bg-primary-light hover:shadow-elevate",
+      "bg-gradient-to-b from-primary to-primary-dark from-80% text-contrast-primary border-solid border-b-2 border-primary hover:from-10%",
   },
   outline: {
     inherit: "border-inherit bg-transparent text-default",
-    primary:
-      "bg-transparent text-primary border-primary hover:bg-primary hover:text-contrast-primary",
+    primary: "",
   },
   elevate: {
     inherit: "",
-    primary:
-      "bg-transparent text-primary border-0 hover:bg-opacity-10 hover:bg-primary shadow-elevate",
+    primary: "",
   },
 };
 
@@ -46,7 +44,7 @@ const ButtonBase = ({
   children,
 }: Props) => {
   const classes = classNames(
-    "relative text-base block cursor-pointer border border-solid transition-all ease-out duration-200",
+    "relative text-base block cursor-pointer transition-all ease-out shadow-md duration-200",
     buttonStyles[variant][color],
     className
   );

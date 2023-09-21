@@ -11,12 +11,12 @@ type Props = {
 
 const SkillBox = ({ icons, title, description }: Props) => {
   const iconsMap = icons.map((i) => {
-    return <Icon icon={i} fontSize="md" defaultColor />;
+    return <Icon icon={i} fontSize="lg" defaultColor />;
   });
 
   return (
-    <div className="bg-paper rounded-lg shadow-elevate p-5 flex flex-col justify-start items-center w-full h-full">
-      <div className="flex flex-row justify-center items-center [&>*:not(:last-child)]:mr-1">
+    <div className="bg-paper rounded-lg shadow-elevate p-5 flex flex-col justify-start items-center w-full h-full overflow-hidden">
+      <div className="flex flex-row justify-center items-center [&>*:not(:last-child)]:mr-1 flex-wrap lg:flex-nowrap">
         {iconsMap}
       </div>
       <div>

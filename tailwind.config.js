@@ -33,7 +33,7 @@ module.exports = {
 
       colors: {
         primary: {
-          DEFAULT: "#6750a4", //"#ff4d5a", //"#7611a6", //'#8b5cf6',
+          DEFAULT: "#7C5EC6", //"#6750a4", //"#ff4d5a", //"#7611a6", //'#8b5cf6',
           light: "#987fdb", //"#fa707a", //"#a12bd9", //"#C4B6FD",
           dark: "#3c2a6b", //"#bd222d", //"#4c076e", //"#4C1D95",
         },

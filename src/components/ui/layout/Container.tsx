@@ -10,7 +10,7 @@ type Props = {
 const Container = ({ as = "div", className, children }: Props) => {
   const As = as;
   var classes = classNames(
-    "container max-w-screen-xl mx-auto px-2",
+    "container max-w-screen-xl mx-auto px-4 lg:px-0",
     className,
     {
       //"h-screen": fullHeight,
