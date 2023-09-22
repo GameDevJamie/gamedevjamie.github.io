@@ -71,7 +71,11 @@ const NavList = () => {
 
   const setActive = (index: number) => {
     let ulPadding = 8;
-    let margin = 8;
+    var style = window.getComputedStyle(refList.current[0]);
+    let margin = parseInt(
+      style.marginLeft.substring(0, style.marginLeft.indexOf("px"))
+    );
+    console.log(margin);
     let t = ulPadding + margin * (index * 2 + 1);
 
     let count = 0;
