@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import { motion, spring } from "framer-motion";
+import React, { useEffect, useState, useRef, LegacyRef } from "react";
+import { motion } from "framer-motion";
 import Icon, { IconType } from "components/ui/display/Icon";
 import classNames from "classnames";
 
@@ -7,73 +7,101 @@ type NavItemProps = {
   title: string;
   icon: IconType;
   active?: boolean;
+  index: number;
+  onClick: (index: number) => void;
 };
 
-const NavItem = ({ title, icon, active }: NavItemProps) => {
-  const classes = classNames("flex flew-row justify-center items-center py-2 px-4 my-1 mx-2 cursor-pointer z-10", {"text-primary": active});
+const NavItem = React.forwardRef(
+  (
+    { title, icon, active, index, onClick }: NavItemProps,
+    ref: LegacyRef<HTMLLIElement>
+  ) => {
+    const classes = classNames(
+      "flex flew-row justify-center items-center py-2 px-[10px] md:px-4 my-1 mx-2 cursor-pointer z-10",
+      { "text-primary": active }
+    );
 
-  const ref = useRef<HTMLLIElement>(null);
+    return (
+      <li
+        className={classes}
+        ref={ref}
+        onClick={() => {
+          onClick(index);
+        }}
+      >
+        <Icon icon={icon} />
+        <span className="ml-1">{title}</span>
+      </li>
+    );
+  }
+);
 
-  useEffect(() => {
-    if(active && ref.current){
-      console.log(ref.current.offsetWidth); //How to get width of element
-    }
-  }, []);
-
+const NavSwitch = ({ width, xPos }: { width: number; xPos: number }) => {
   return (
-    <li className={classes} ref={ref}>
-      <Icon icon={icon} />
-      <span className="ml-1">{title}</span>
-    </li>
+    <motion.div
+      className="bg-green-300 rounded-full shadow-md absolute h-10 top-0 bottom-0 my-auto"
+      initial={false}
+      animate={{ width: width, left: xPos }}
+    />
   );
 };
 
-const NavSwitch = ({width, xPos} : {width: number, xPos: number}) => {
-  return <div className="bg-green-300 rounded-full shadow-md absolute h-10 top-0 bottom-0 my-auto" style={{width: width, left: xPos}} />
-}
-
-
+const items = [
+  { title: "Home", icon: IconType.House },
+  { title: "Skills", icon: IconType.VSCode },
+  { title: "Projects", icon: IconType.Code },
+  { title: "CV", icon: IconType.FileLines },
+];
 //Margins
-//1 = 1
-//2 = 3
-//3 = 5
-//4 = 7
+//0 = 1
+//1 = 3
+//2 = 5
+//3 = 7
+//n = 2n + 1
 const NavList = () => {
-  const homeWidth = 102;
-  const skillsWidth = 90;
-  const projectsWidth = 119;
-  const cvWidth = 71;
-
-  const paddingX = 8;
-  
-  //Offsets for each item (Only works when switch is centered by translateX)
-  const margin = 8;
-  const offset = paddingX + margin + (homeWidth / 2);
-  const offset2 = paddingX + margin + margin + margin + homeWidth + (skillsWidth / 2);  //Skills
-  const offset3 = paddingX + margin + margin + margin + margin + margin + homeWidth + skillsWidth + (projectsWidth / 2); //Projects
-
   const [xPos, setXPos] = useState(0);
-  const ulRef = useRef<HTMLUListElement>(null);
+  const [width, setWidth] = useState(0);
 
+  const refList = useRef<Array<HTMLLIElement>>(new Array());
   useEffect(() => {
-    if(ulRef.current) {
-      let numItems = 4;
-      let t = (ulRef.current.offsetWidth) / numItems;
+    setActive(0);
+  }, []);
 
-      let index = 1;
-      let result = paddingX + margin;// paddingX + margin + (t * (index - 1));
-      setXPos(result);
+  //UL padding + (margin * ((2 * index) - 1)) + (each navItem width up to and not including selected navItem)
+
+  const setActive = (index: number) => {
+    let ulPadding = 8;
+    let margin = 8;
+    let t = ulPadding + margin * (index * 2 + 1);
+
+    let count = 0;
+    while (count < index) {
+      t += refList.current[count]?.offsetWidth;
+      count++;
     }
-  }, [])
+
+    setXPos(t);
+    setWidth(refList.current[index]?.offsetWidth);
+  };
+
+  const navItemsMap = items.map((i, index) => {
+    return (
+      <NavItem
+        key={i.title}
+        title={i.title}
+        icon={i.icon}
+        index={index}
+        onClick={setActive}
+        ref={(el: HTMLLIElement) => (refList.current[index] = el)}
+      />
+    );
+  });
 
   return (
-    <ul className="py-1 px-2 list-none flex flex-row relative" ref={ulRef}>
-      <NavSwitch width={1} xPos={xPos} />
+    <ul className="py-1 px-2 list-none flex flex-row relative">
+      <NavSwitch width={width} xPos={xPos} />
 
-      <NavItem title="Home" icon={IconType.House} />
-      <NavItem title="Skills" icon={IconType.VSCode} />
-      <NavItem title="Projects" icon={IconType.Code} />
-      <NavItem title="CV" icon={IconType.FileLines} active/>
+      {navItemsMap}
     </ul>
   );
 };
@@ -81,7 +109,7 @@ const NavList = () => {
 const Navbar = () => {
   return (
     <motion.nav
-      className="rounded-full text-md bg-white/80 shadow-lg relative flex justify-center overflow-hidden"
+      className="rounded-full text-base bg-white/100 shadow-lg relative flex justify-center overflow-hidden"
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
       transition={{
