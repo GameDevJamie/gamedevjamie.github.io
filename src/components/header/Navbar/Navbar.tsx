@@ -52,15 +52,10 @@ const items = [
   { title: "Projects", icon: IconType.Code },
   { title: "CV", icon: IconType.FileLines },
 ];
-//Margins
-//0 = 1
-//1 = 3
-//2 = 5
-//3 = 7
-//n = 2n + 1
 const NavList = () => {
   const [xPos, setXPos] = useState(0);
   const [width, setWidth] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const refList = useRef<Array<HTMLLIElement>>(new Array());
   useEffect(() => {
@@ -75,17 +70,17 @@ const NavList = () => {
     let margin = parseInt(
       style.marginLeft.substring(0, style.marginLeft.indexOf("px"))
     );
-    console.log(margin);
     let t = ulPadding + margin * (index * 2 + 1);
 
-    let count = 0;
-    while (count < index) {
-      t += refList.current[count]?.offsetWidth;
-      count++;
+    let i = 0;
+    while (i < index) {
+      t += refList.current[i]?.offsetWidth;
+      i++;
     }
 
     setXPos(t);
     setWidth(refList.current[index]?.offsetWidth);
+    setActiveIndex(index);
   };
 
   const navItemsMap = items.map((i, index) => {
@@ -96,6 +91,7 @@ const NavList = () => {
         icon={i.icon}
         index={index}
         onClick={setActive}
+        active={index == activeIndex}
         ref={(el: HTMLLIElement) => (refList.current[index] = el)}
       />
     );
