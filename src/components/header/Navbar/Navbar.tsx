@@ -17,8 +17,8 @@ const NavItem = React.forwardRef(
     ref: LegacyRef<HTMLLIElement>
   ) => {
     const classes = classNames(
-      "flex flew-row justify-center items-center py-2 px-[10px] md:px-4 my-1 mx-2 cursor-pointer z-10",
-      { "text-primary": active }
+      "flex flew-row justify-center items-center py-1 md:py-2 px-[10px] md:px-4 my-1 mx-2 cursor-pointer z-10 transition-all ease-in duration-250",
+      { "text-white": active }
     );
 
     return (
@@ -39,7 +39,7 @@ const NavItem = React.forwardRef(
 const NavSwitch = ({ width, xPos }: { width: number; xPos: number }) => {
   return (
     <motion.div
-      className="bg-green-300 rounded-full shadow-md absolute h-10 top-0 bottom-0 my-auto"
+      className="bg-gradient-to-b from-primary-light to-primary rounded-full absolute h-8 md:h-10 top-0 bottom-0 my-auto"
       initial={false}
       animate={{ width: width, left: xPos }}
     />
@@ -58,11 +58,19 @@ const NavList = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const refList = useRef<Array<HTMLLIElement>>(new Array());
-  useEffect(() => {
-    setActive(0);
-  }, []);
+  const updateSelectedNavItem = () => {
+    setActive(activeIndex);
+  };
 
-  //UL padding + (margin * ((2 * index) - 1)) + (each navItem width up to and not including selected navItem)
+  useEffect(() => {
+    setActive(activeIndex);
+
+    window.addEventListener("resize", updateSelectedNavItem);
+
+    return () => {
+      window.removeEventListener("resize", updateSelectedNavItem);
+    };
+  }, []);
 
   const setActive = (index: number) => {
     let ulPadding = 8;
@@ -109,7 +117,7 @@ const NavList = () => {
 const Navbar = () => {
   return (
     <motion.nav
-      className="rounded-full text-base bg-white/100 shadow-lg relative flex justify-center overflow-hidden"
+      className="rounded-full text-nav bg-white/100 shadow-lg relative flex justify-center overflow-hidden"
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
       transition={{

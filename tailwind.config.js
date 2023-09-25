@@ -14,6 +14,8 @@ module.exports = {
       xl: "clamp(1.25rem, 0.9024rem + 1.4634vw, 2rem)",
       "2xl": "clamp(1.5rem, 0.9429rem + 2.4762vw, 2.8rem)",
 
+      nav: "clamp(0.75rem, 0.6429rem + 0.4762vw, 1rem)",
+      heading: "clamp(2.25rem, 0.9375rem + 5.8333vw, 4rem);",
       footer: "clamp(0.5rem, 0.3929rem + 0.4762vw, 0.75rem)",
     },
     extend: {

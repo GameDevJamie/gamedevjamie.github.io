@@ -1,8 +1,7 @@
-import React, { ReactElement } from "react";
+import React from "react";
 import Button from "components/ui/input/button/Button";
-import Stack from "components/ui/layout/Stack";
-import Icon, { IconType } from "components/ui/display/Icon";
-import classNames from "classnames";
+import { IconType } from "components/ui/display/Icon";
+import Video from "components/ui/display/Video";
 
 {
   /*Place in Footer
@@ -10,8 +9,8 @@ import classNames from "classnames";
 }
 
 type Props = {
-  heading1: string;
-  heading2: string;
+  name: string;
+  profession: string;
   subHeading: string;
   videoSrc: string;
   buttons: {
@@ -22,7 +21,7 @@ type Props = {
   }[];
 };
 
-const Hero = ({ heading1, heading2, subHeading, videoSrc, buttons }: Props) => {
+const Hero = ({ name, profession, subHeading, videoSrc, buttons }: Props) => {
   const buttonMap = buttons.map((b) => {
     return (
       <Button
@@ -37,16 +36,19 @@ const Hero = ({ heading1, heading2, subHeading, videoSrc, buttons }: Props) => {
 
   return (
     <div className="flex flex-col md:flex-row justify-between items-center w-full">
-      <div className="text-center max-w-xl selection:bg-primary-light/30 selection:text-white">
-        <div className="text-2xl font-bold">
-          <h2>{heading1}</h2>
-          <h2>{heading2}</h2>
+      <div className="text-center md:text-left max-w-xl selection:bg-primary/80 selection:text-white">
+        <div className="text-heading font-bold">
+          <h2>
+            Hi, I'm <span className="text-primary-dark">{name}</span>
+          </h2>
+          <h2>
+            A <span className="text-primary-dark">{profession}</span>
+          </h2>
         </div>
 
         <p className="text-base text-muted">{subHeading}</p>
-        <div className="flex flex-row justify-center items-center [&>*:not(:last-child)]:mr-8">
+        <div className="flex flex-row justify-center md:justify-start items-center [&>*:not(:last-child)]:mr-8">
           {buttonMap}
-
           {/*
           <button className="rounded-full text-base px-6 py-3 text-contrast-primary bg-primary flex flex-row justify-center items-center shadow-2xl">
             <span className="mr-2">View Projects</span>
@@ -59,7 +61,9 @@ const Hero = ({ heading1, heading2, subHeading, videoSrc, buttons }: Props) => {
           </button>*/}
         </div>
       </div>
-      <div>Video</div>
+      <div className="w-full h-full">
+        <Video videoSrcURL="Home-Page-Video.mp4" videoTitle="Test" />
+      </div>
     </div>
   );
 };
